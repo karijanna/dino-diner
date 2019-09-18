@@ -23,7 +23,7 @@ namespace DinoDiner.Menu.Sides
             Size = Size.Small;
             Price = 0.99;
             Calories = 352;
-            Ingredients = new List<string>() { "Potato", "Breading", "Vegtable Oil" };
+            Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
         }
         /// <summary>
         /// Private size variable for switch case
