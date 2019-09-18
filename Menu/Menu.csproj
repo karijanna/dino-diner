@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entrees\DinoNuggets.cs" />
+    <Compile Remove="Entrees\PrehistoricPBJ.cs" />
+    <Compile Remove="Entrees\PterodactylWings.cs" />
+    <Compile Remove="Entrees\SteakosaurusBurger.cs" />
+    <Compile Remove="Entrees\TRexKingBurger.cs" />
+    <Compile Remove="Entrees\VelociWrap.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Milestones\" />
   </ItemGroup>
 
