@@ -79,19 +79,19 @@ namespace DinoDiner.Menu.Entrees
         {
             DinoNuggets dn = new DinoNuggets();
             dn.AddNugget();
-<<<<<<< HEAD
+///<<<<<<< HEAD
             Assert.Equal<uint>(dn.Calories, 59*7);
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59*8);
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59*9);
-=======
+///=======
             Assert.Equal<uint>(dn.Calories, 59 * 7);
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59 * 8);
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59 * 9);
->>>>>>> 7330ac446ba899195f196c2d2626f12cf3b23a23
+///>>>>>>> 7330ac446ba899195f196c2d2626f12cf3b23a23
         }
     }
 }
