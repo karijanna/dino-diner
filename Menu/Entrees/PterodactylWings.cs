@@ -2,29 +2,19 @@
 *   Author: Karijanna Miller
 */
 
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
     /// Pterodactyle Wings calories, price, and list of ingredients
     /// </summary>
-    public class PterodactylWings
+    public class PterodactylWings : Entree
     {
-        /// <summary>
-        /// Sets the price for the Pterodactyl Wings
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// Sets the calories amount for the menu item 
-        /// </summary>
-        public uint Calories { get; set; }
         /// <summary>
         /// Adds the list of ingredients to the menu
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
@@ -38,8 +28,8 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public PterodactylWings()
         {
-            this.Price = 7.21;
-            this.Calories = 318;
+            Price = 7.21;
+            Calories = 318;
         }
     }
 }

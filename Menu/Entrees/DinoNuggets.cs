@@ -1,11 +1,8 @@
-﻿/*  PrehistoricPBJ.cs
+﻿/*  DinoNuggets.cs
 *   Author: Karijanna Miller
 */
 
-using System;
 using System.Collections.Generic;
-using System.Text;
-using DinoDiner.Menu.Entrees;
 
 namespace DinoDiner.Menu.Entrees
 {
@@ -13,16 +10,8 @@ namespace DinoDiner.Menu.Entrees
     /// Dino Nuggets price, calories, and list of ingredients
     /// Contains method to add extra nuggets to the order
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
-        /// <summary>
-        /// Sets the price of Dino Nuggets
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// Sets the calories of Dino Nuggets
-        /// </summary>
-        public uint Calories { get; set; }
         /// <summary>
         /// Count of nuggets when customer adds extra nugget count to the order
         /// </summary>
@@ -30,11 +19,11 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Adds the list of ingredients to the menu
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>();
+                List<string> ingredients = new List<string>() { "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget" };
                 for (int i = 0; i < nuggetCount; i++)
                 {
                     ingredients.Add("Chicken Nugget");
@@ -47,9 +36,8 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public DinoNuggets()
         {
-            this.Price = 4.25;
-            this.Calories = 354;
-            // calories will change when adding a nugget
+            Price = 4.25;
+            Calories = 354;
         }
         /// <summary>
         /// Method adds an extra nugget onto the order

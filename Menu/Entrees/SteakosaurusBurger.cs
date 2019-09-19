@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// Steakosaurus Burger price, calories, and list of ingredients
     /// Contains methods to take off certain ingredients if customer wants to
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         /// <summary>
         /// Customers can take off the bun off of their order
@@ -29,17 +29,9 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool mustard = true;
         /// <summary>
-        /// Sets the price of the order
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// Sets how many calories are in the order
-        /// </summary>
-        public uint Calories { get; set; }
-        /// <summary>
         /// Adds the ingredients list to the menu for Steakosaurus Burger
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
@@ -56,36 +48,36 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public SteakosaurusBurger()
         {
-            this.Price = 5.15;
-            this.Calories = 621;
+            Price = 5.15;
+            Calories = 621;
         }
         /// <summary>
         /// Method to take off the bun
         /// </summary>
         public void HoldBun()
         {
-            this.wholeWheatBun = false;
+            wholeWheatBun = false;
         }
         /// <summary>
         /// Method to take off the pickles
         /// </summary>
         public void HoldPickle()
         {
-            this.pickle = false;
+            pickle = false;
         }
         /// <summary>
         /// Method to take off the ketchup
         /// </summary>
         public void HoldKetchup()
         {
-            this.ketchup = false;
+            ketchup = false;
         }
         /// <summary>
         /// Method to take off the mustard
         /// </summary>
         public void HoldMustard()
         {
-            this.mustard = false;
+            mustard = false;
         }
     }
 }

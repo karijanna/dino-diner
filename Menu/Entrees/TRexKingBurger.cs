@@ -2,9 +2,7 @@
 *   Author: Karijanna Miller
 */
 
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
@@ -12,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// T-Rex King Burger price, calories, and list of ingredients
     /// Contains methods to take off certain ingredients if customers wants to 
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// Customers can ask for the bun off of their order
@@ -46,29 +44,19 @@ namespace DinoDiner.Menu.Entrees
         /// Customers can ask for mayo off of their order
         /// </summary>
         private bool mayo = true;
-
-        /// <summary>
-        /// Sets the price of the order
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// Sets the amount of calories within the order
-        /// </summary>
-        public uint Calories { get; set; }
-
         /// <summary>
         /// Adds the following ingredients to the menu
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Steakburger Patties", "Steakburger Patties", "Steakburger Patties" };
-                if (wholeWheatBun) ingredients.Add("Whole-wheat Bun");
+                List<string> ingredients = new List<string>() { "Steakburger Pattie", "Steakburger Pattie", "Steakburger Pattie" };
+                if (wholeWheatBun) ingredients.Add("Whole Wheat Bun");
                 if (lettuce) ingredients.Add("Lettuce");
-                if (tomato) ingredients.Add("Tomatoes");
-                if (onion) ingredients.Add("Onions");
-                if (pickle) ingredients.Add("Pickles");
+                if (tomato) ingredients.Add("Tomato");
+                if (onion) ingredients.Add("Onion");
+                if (pickle) ingredients.Add("Pickle");
                 if (ketchup) ingredients.Add("Ketchup");
                 if (mustard) ingredients.Add("Mustard");
                 if (mayo) ingredients.Add("Mayo");
@@ -81,8 +69,8 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public TRexKingBurger()
         {
-            this.Price = 8.45;
-            this.Calories = 728;
+            Price = 8.45;
+            Calories = 728;
         }
 
         /// <summary>
@@ -90,56 +78,56 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            this.wholeWheatBun = false;
+            wholeWheatBun = false;
         }
         /// <summary>
         /// Method to take off the lettuce
         /// </summary>
         public void HoldLettuce()
         {
-            this.lettuce = false;
+            lettuce = false;
         }
         /// <summary>
         /// Method to take off the tomato
         /// </summary>
         public void HoldTomato()
         {
-            this.tomato = false;
+            tomato = false;
         }
         /// <summary>
         /// Method to take off the onion
         /// </summary>
         public void HoldOnion()
         {
-            this.onion = false;
+            onion = false;
         }
         /// <summary>
         /// Method to take off the pickle
         /// </summary>
         public void HoldPickle()
         {
-            this.pickle = false;
+            pickle = false;
         }
         /// <summary>
         /// Method to take off the ketchup
         /// </summary>
         public void HoldKetchup()
         {
-            this.ketchup = false;
+            ketchup = false;
         }
         /// <summary>
         /// Method to take off the mustard
         /// </summary>
         public void HoldMustard()
         {
-            this.mustard = false;
+            mustard = false;
         }
         /// <summary>
         /// Mehotd to take off the mayo
         /// </summary>
         public void HoldMayo()
         {
-            this.mayo = false;
+            mayo = false;
         }
     }
 

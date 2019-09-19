@@ -2,7 +2,6 @@
 *   Author: Karijanna Miller
 */
 
-using System;
 using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
@@ -28,45 +27,15 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Adds the list of ingredietns to the menu
         /// </summary>
-        /*public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
                 List<string> ingredients = new List<string>() { "Brautwurst" };
                 if (wholeWheatBun) ingredients.Add("Whole Wheat Bun");
                 if (peppers) ingredients.Add("Peppers");
-                if (onions) ingredients.Add("Onions");
+                if (onions) ingredients.Add("Onion");
                 return ingredients;
-            }
-        }*/
-        /// <summary>
-        /// Private size variable for switch case
-        /// </summary>
-        private List<string> i;
-        /// <summary>
-        /// Overrides the public Size method 
-        /// To set specific amount for Fryceritops
-        /// </summary>
-        public override List<string> Ingredients
-        {
-            set
-            {
-                i = value;
-                switch (i)
-                {
-                    case :
-                        Price = 1.45;
-                        Calories = 365;
-                        break;
-                    case Size.Large:
-                        Price = 1.95;
-                        Calories = 480;
-                        break;
-                }
-            }
-            get
-            {
-                return size;
             }
         }
         /// <summary>
@@ -76,7 +45,6 @@ namespace DinoDiner.Menu.Entrees
         {
             Price = 5.36;
             Calories = 498;
-            Ingredients = new List<string>() { "Brautwurst", "Whole Wheat Bun", "Peppers", "Onion" };
         }
         /// <summary>
         /// Method to take off the bun
