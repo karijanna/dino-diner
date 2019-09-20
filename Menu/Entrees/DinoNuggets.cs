@@ -15,7 +15,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Count of nuggets when customer adds extra nugget count to the order
         /// </summary>
-        public uint nuggetCount;
+        public int nuggetCount = 6;
         /// <summary>
         /// Adds the list of ingredients to the menu
         /// </summary>
@@ -23,7 +23,7 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget" };
+                List<string> ingredients = new List<string>() { };
                 for (int i = 0; i < nuggetCount; i++)
                 {
                     ingredients.Add("Chicken Nugget");
