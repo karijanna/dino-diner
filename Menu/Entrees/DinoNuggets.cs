@@ -15,7 +15,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Count of nuggets when customer adds extra nugget count to the order
         /// </summary>
-        public int nuggetCount = 6;
+        private uint nuggetCount = 6;
         /// <summary>
         /// Adds the list of ingredients to the menu
         /// </summary>
@@ -45,9 +45,9 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void AddNugget()
         {
+            nuggetCount++;
             Price += 0.25;
             Calories += 59;
-            nuggetCount++;
         }
     }
 }

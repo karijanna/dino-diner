@@ -80,11 +80,6 @@ namespace DinoDiner.Menu.Entrees
             DinoNuggets dn = new DinoNuggets();
             dn.AddNugget();
 ///<<<<<<< HEAD
-            Assert.Equal<uint>(dn.Calories, 59*7);
-            dn.AddNugget();
-            Assert.Equal<uint>(dn.Calories, 59*8);
-            dn.AddNugget();
-            Assert.Equal<uint>(dn.Calories, 59*9);
 ///=======
             Assert.Equal<uint>(dn.Calories, 59 * 7);
             dn.AddNugget();
