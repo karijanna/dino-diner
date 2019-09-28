@@ -6,13 +6,6 @@ using System.Text;
 namespace DinoDiner.Menu.Sides
 {
 
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
     public abstract class Side
     {
         /// <summary>
