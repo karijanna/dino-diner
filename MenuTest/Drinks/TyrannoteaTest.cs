@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  TyrannoteaTest.cs
+*   Author: Karijanna Miller
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
@@ -18,14 +22,6 @@ namespace MenuTest.Drinks
         }
         //The correct price and calories after changing to small, medium, and large sizes.
         [Fact]
-        public void ShouldHaveCorrectPriceForSmall()
-        {
-            Tyrannotea tea = new Tyrannotea();
-            tea.Size = Size.Small;
-            Assert.Equal<double>(0.99, tea.Price);
-
-        }
-        [Fact]
         public void ShouldHaveCorrectPriceForMedium()
         {
             Tyrannotea tea = new Tyrannotea();
@@ -38,6 +34,71 @@ namespace MenuTest.Drinks
             Tyrannotea tea = new Tyrannotea();
             tea.Size = Size.Large;
             Assert.Equal<double>(1.99, tea.Price);
+        }
+        [Fact]
+        public void ShouldHaveCorrectDefaultCalories()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.Equal<uint>(8, tea.Calories);
+        }
+        [Fact]
+        public void ShouldUseCorrectCaloriesForMedium()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
+            Assert.Equal<uint>(16, tea.Calories);
+        }
+        [Fact]
+        public void ShouldUseCorrectCaloriesForLarge()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Large;
+            Assert.Equal<uint>(32, tea.Calories);
+        }
+        [Fact]
+        public void ShouldHaveCorrectDefaultSize()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.Equal<Size>(Size.Small, tea.Size);
+        }
+        [Fact]
+        public void ShouldBeAbleToSetSizeToMedium()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
+            Assert.Equal<Size>(Size.Medium, tea.Size);
+        }
+        [Fact]
+        public void ShouldBeAbleToSetSizeToLarge()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Large;
+            Assert.Equal<Size>(Size.Large, tea.Size);
+        }
+        [Fact]
+        public void ShouldHaveCorrectIngedients()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            List<string> ingredients = tea.Ingredients;
+            Assert.Contains<string>("Water", ingredients);
+            Assert.Contains<string>("Tea", ingredients);
+            Assert.Contains<string>("Cane Sugar", ingredients);
+            Assert.Contains<string>("Lemon", ingredients);
+            Assert.Equal<int>(4, ingredients.Count);
+        }
+        [Fact]
+        public void AddLemonShouldAddLemon()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            Assert.Contains<string>("Lemon", tea.Ingredients);
+        }
+        [Fact]
+        public void MakeSweetShouldAddSweet()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.MakeSweet();
+            Assert.Contains<string>("Cane Sugar", tea.Ingredients);
         }
         [Fact]
         public void ShouldHaveDefaultIce()

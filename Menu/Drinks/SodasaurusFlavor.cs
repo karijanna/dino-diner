@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*  SodasaurusFlavor.cs
+*   Author: Karijanna Miller
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
@@ -6,6 +10,9 @@ using DinoDiner.Menu.Drinks;
 
 namespace DinoDiner.Menu.Drinks
 {
+    /// <summary>
+    /// All the available flavors for Sodasaurus
+    /// </summary>
     public enum SodasaurusFlavor
     {
         Cola,
