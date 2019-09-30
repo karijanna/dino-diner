@@ -82,9 +82,7 @@ namespace MenuTest.Drinks
             List<string> ingredients = tea.Ingredients;
             Assert.Contains<string>("Water", ingredients);
             Assert.Contains<string>("Tea", ingredients);
-            Assert.Contains<string>("Cane Sugar", ingredients);
-            Assert.Contains<string>("Lemon", ingredients);
-            Assert.Equal<int>(4, ingredients.Count);
+            Assert.Equal<int>(2, ingredients.Count);
         }
         [Fact]
         public void AddLemonShouldAddLemon()
@@ -94,17 +92,66 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Lemon", tea.Ingredients);
         }
         [Fact]
-        public void MakeSweetShouldAddSweet()
+        public void ShouldHaveCorrectDefaultCaloriesWhenSweet()
         {
             Tyrannotea tea = new Tyrannotea();
-            tea.MakeSweet();
-            Assert.Contains<string>("Cane Sugar", tea.Ingredients);
+            tea.MakeSweet = true;
+            Assert.Equal<uint>(16, tea.Calories);
+        }
+        [Fact]
+        public void ShouldHaveCorrectDefaultCaloriesWhenSweetIsFalse()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.MakeSweet = true;
+            tea.MakeSweet = false;
+            Assert.Equal<uint>(8, tea.Calories);
+        }
+        [Fact]
+        public void ShouldHaveCorrectMediumCaloriesWhenSweet()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
+            tea.MakeSweet = true;
+            Assert.Equal<uint>(32, tea.Calories);
+        }
+        [Fact]
+        public void ShouldHaveCorrectMediumCaloriesWhenSweetIsFalse()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
+            tea.MakeSweet = true;
+            tea.MakeSweet = false;
+            Assert.Equal<uint>(16, tea.Calories);
+        }
+        [Fact]
+        public void ShouldHaveCorrectLargeCaloriesWhenSweet()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Large;
+            tea.MakeSweet = true;
+            Assert.Equal<uint>(64, tea.Calories);
+        }
+        [Fact]
+        public void ShouldHaveCorrectLargeCaloriesWhenSweetIsFalse()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Large;
+            tea.MakeSweet = true;
+            tea.MakeSweet = false;
+            Assert.Equal<uint>(32, tea.Calories);
         }
         [Fact]
         public void ShouldHaveDefaultIce()
         {
             Tyrannotea tea = new Tyrannotea();
             Assert.True(tea.Ice);
+        }
+        [Fact]
+        public void HoldIceShouldRemoveIce()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.HoldIce();
+            Assert.False(tea.Ice);
         }
     }
 }

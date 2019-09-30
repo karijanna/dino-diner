@@ -91,11 +91,25 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Coffee", ingredients);
             Assert.Equal<int>(2, ingredients.Count);
         }
-        /*[Fact]
-        public void ShouldHaveDefaultIce()
+       [Fact]
+        public void ShouldAddtIce()
         {
             JurassicJava coffee = new JurassicJava();
+            coffee.AddIce();
             Assert.True(coffee.Ice);
-        }*/
+        }
+        [Fact]
+        public void ShouldHaveDefaultSpaceForCream()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.False(coffee.RoomForCream);
+        }
+        [Fact]
+        public void ShouldLeaveSpaceForCream()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.LeaveRoomForCream();
+            Assert.True(coffee.RoomForCream);
+        }
     }
 }

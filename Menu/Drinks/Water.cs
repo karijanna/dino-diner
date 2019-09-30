@@ -6,41 +6,30 @@ namespace DinoDiner.Menu.Drinks
 {
     public class Water : Drink
     {
-        private Size size;
+        //private Size size;
+        public bool Lemon = false;
         public override Size Size
         {
-            set
-            {
-                size = value;
-                switch (size)
-                {
-                    case Size.Medium:
-                        Price = 2.00;
-                        Calories = 156;
-                        break;
-                    case Size.Large:
-                        Price = 2.50;
-                        Calories = 208;
-                        break;
-                }
-            }
-            get
-            {
-                return size;
-            }
+            get; set;
         }
         public override List<string> Ingredients
         {
             get
             {
-                return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+                List<string> ingredients = new List<string>() { "Water" };
+                if (Lemon) ingredients.Add("Lemon");
+                return ingredients;
             }
         }
         public Water()
         {
             Size = Size.Small;
-            Price = 1.50;
-            Calories = 112;
+            Price = 0.10;
+            Calories = 0;
+        }
+        public void AddLemon()
+        {
+            Lemon = true;   
         }
     }
 }

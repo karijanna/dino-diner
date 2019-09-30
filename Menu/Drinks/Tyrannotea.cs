@@ -24,7 +24,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Variable for adding lemon to the tea
         /// </summary>
-        private bool lemon = false;
+        public bool Lemon = false;
         /// <summary>
         /// Overrides the public Size method 
         /// To set specific amount for Tyrannotea
@@ -59,8 +59,8 @@ namespace DinoDiner.Menu.Drinks
             get
             {
                 List<string> ingredients = new List<string>() { "Water", "Tea" };
-                if (lemon) ingredients.Add("Lemon");
-                if (sweet) ingredients.Add("Cane Sugar");
+                if (Lemon) ingredients.Add("Lemon");
+                if (MakeSweet) ingredients.Add("Cane Sugar");
                 return ingredients;
             }
         }
@@ -78,14 +78,26 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public void AddLemon()
         {
-            lemon = true;
+            Lemon = true;
         }
         /// <summary>
         /// Method for adding sugar to tea
         /// </summary>
-        public void MakeSweet()
+        public bool MakeSweet
         {
-            sweet = true;
+            get { return sweet;  }
+            set
+            {
+                sweet = value;
+                if (sweet == true)
+                {
+                    Calories *= 2;
+                }
+                else
+                {
+                    Calories /= 2;
+                }
+            }
         }
     }
 }

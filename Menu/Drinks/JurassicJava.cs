@@ -24,7 +24,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Variable for making room for cream
         /// </summary>
-        private bool roomForCream = false;
+        public bool RoomForCream = false;
         /// <summary>
         /// Overrides the public Size method 
         /// To set specific amount for Tyrannotea
@@ -75,14 +75,14 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public void LeaveRoomForCream()
         {
-            roomForCream = true;
+            RoomForCream = true;
         }
         /// <summary>
         /// Method for adding ice if customer wants it
         /// </summary>
         public void AddIce()
         {
-            Ice = false;
+            Ice = true;
         }
     }
 }
