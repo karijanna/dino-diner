@@ -20,7 +20,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Variable for making coffee decaf
         /// </summary>
-        private bool decaf = false;
+        public bool Decaf = false;
         /// <summary>
         /// Variable for making room for cream
         /// </summary>
@@ -83,6 +83,14 @@ namespace DinoDiner.Menu.Drinks
         public void AddIce()
         {
             Ice = true;
+        }
+        public override string ToString()
+        {
+            if (Decaf == true)
+            {
+                return Size.ToString() + " Decaf Jurassic Java";
+            }
+            return Size.ToString() + " Jurassic Java";
         }
     }
 }

@@ -20,7 +20,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Variable for making the tea sweet
         /// </summary>
-        private bool sweet = false;
+        public bool Sweet = false;
         /// <summary>
         /// Variable for adding lemon to the tea
         /// </summary>
@@ -85,11 +85,11 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public bool MakeSweet
         {
-            get { return sweet;  }
+            get { return Sweet;  }
             set
             {
-                sweet = value;
-                if (sweet == true)
+                Sweet = value;
+                if (Sweet == true)
                 {
                     Calories *= 2;
                 }
@@ -98,6 +98,14 @@ namespace DinoDiner.Menu.Drinks
                     Calories /= 2;
                 }
             }
+        }
+        public override string ToString()
+        {
+            if (Sweet == true)
+            {
+                return Size.ToString() + " Sweet Tyrannotea";
+            }
+            return Size.ToString() + " Tyrannotea";
         }
     }
 }

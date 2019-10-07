@@ -66,5 +66,9 @@ namespace DinoDiner.Menu.Drinks
             Price = 1.50;
             Calories = 112;
         }
+        public override string ToString()
+        {
+            return Size.ToString() + " " + Flavor.ToString() + " Sodasaurus";
+        }
     }
 }

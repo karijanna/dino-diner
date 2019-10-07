@@ -23,7 +23,13 @@ namespace DinoDiner.Menu.Sides
             Size = Size.Small;
             Price = 0.99;
             Calories = 352;
-            Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+        }
+        public override List<string> Ingredients
+        {
+            get
+            {
+                return new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+            }
         }
         /// <summary>
         /// Private size variable for switch case
@@ -54,6 +60,10 @@ namespace DinoDiner.Menu.Sides
             {
                 return size;
             }
+        }
+        public override string ToString()
+        {
+            return Size.ToString() + " Triceritots";
         }
     }
 }

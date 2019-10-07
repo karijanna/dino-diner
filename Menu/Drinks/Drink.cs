@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Abstract class drink that implements within the drinks menu
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         public abstract Size Size { get; set; }
         /// <summary>

@@ -49,5 +49,9 @@ namespace DinoDiner.Menu.Entrees
             Price += 0.25;
             Calories += 59;
         }
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
+        }
     }
 }

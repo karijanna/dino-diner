@@ -22,7 +22,13 @@ namespace DinoDiner.Menu.Sides
             Size = Size.Small;
             Price = 0.99;
             Calories = 420;
-            Ingredients = new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
+        }
+        public override List<string> Ingredients
+        {
+            get
+            {
+                return new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
+            }
         }
         /// <summary>
         /// Private size variable for switch case
@@ -53,6 +59,10 @@ namespace DinoDiner.Menu.Sides
             {
                 return size;
             }
+        }
+        public override string ToString()
+        {
+            return Size.ToString() + " Meteor Mac and Cheese";
         }
     }
 }
