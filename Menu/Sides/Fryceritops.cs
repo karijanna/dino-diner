@@ -62,7 +62,7 @@ namespace DinoDiner.Menu.Sides
         }
         public override string ToString()
         {
-            return Size.ToString() + " Friceritops";
+            return Size.ToString() + " Fryceritops";
         }
     }
 }
