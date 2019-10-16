@@ -22,6 +22,28 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         private Size size;
         /// <summary>
+        /// Gets a description of this order item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Gets a special instructions for this order item
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
+        /// <summary>
         /// Overrides the public Size method 
         /// To set specific amount for Sodasaurus
         /// </summary>
@@ -66,6 +88,10 @@ namespace DinoDiner.Menu.Drinks
             Price = 1.50;
             Calories = 112;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return Size.ToString() + " " + Flavor.ToString() + " Sodasaurus";

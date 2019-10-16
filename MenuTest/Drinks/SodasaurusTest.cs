@@ -14,6 +14,14 @@ namespace MenuTest.Drinks
     public class SodasaurusTest
     {
         ///The ability to set each possible flavor
+        /*[Theory]
+        [InlineDate(SodasaurusFlavor.Lime)]
+        [InlineDate(SodasaurusFlavor.Chocolate)]
+        [InlineDate(SodasaurusFlavor.Cola)]
+        [InlineDate(SodasaurusFlavor.Cherry)]
+        [InlineDate(SodasaurusFlavor.RootBeer)]
+        [InlineDate(SodasaurusFlavor.Orange)]
+        [InlineDate(SodasaurusFlavor.Vanilla)]*/
         [Fact]
         public void ShouldBeAbleToSetFlavorToCola()
         {

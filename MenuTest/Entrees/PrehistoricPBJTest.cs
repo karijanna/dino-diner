@@ -38,13 +38,70 @@ namespace MenuTest.Entrees
             pbj.HoldPeanutButter();
             Assert.DoesNotContain<string>("Peanut Butter", pbj.Ingredients);
         }
-
+        [Fact]
+        public void HoldPeanutButterShouldNotifyChangesOfSpecialPropertyChange()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, "Special", () => 
+            {
+                pbj.HoldPeanutButter();
+            });   
+        }
         [Fact]
         public void HoldJellyShouldRemoveJelly()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             pbj.HoldJelly();
             Assert.DoesNotContain<string>("Jelly", pbj.Ingredients);
+        }
+        [Fact]
+        public void HoldJellyShouldNotifyChangesOfSpecialPropertyChange()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, "Special", () =>
+            {
+                pbj.HoldJelly();
+            });
+        }
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+        [Fact]
+        public void SpecialShouldHoldPeanutButter()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Collection<string>(pbj.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Peanut Butter", item);
+                });
+        }
+        [Fact]
+        public void SpecialShouldHoldJelly()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Collection<string>(pbj.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Jelly", item);
+                });
+        }
+        [Fact]
+        public void SpecialShouldHoldPeanutButterAndJelly()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Collection<string>(pbj.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Peanut Butter", item);
+                },
+                item => 
+                {
+                    Assert.Equal("Hold Jelly", item);
+                });
         }
     }
 
