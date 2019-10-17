@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
     /// Class that represents the Jurassic Java drink menu item
     /// </summary>
-    public class JurassicJava : Drink
+    public class JurassicJava : Drink, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Private size variable for switch case
@@ -25,6 +26,44 @@ namespace DinoDiner.Menu.Drinks
         /// Variable for making room for cream
         /// </summary>
         public bool RoomForCream = false;
+        /// <summary>
+        /// The PropertyChanged event handler 
+        /// Notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Helper function for notifying of property changes
+        /// </summary>
+        /// <param name="propertyName">Name of the property that is changed</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+        /// <summary>
+        /// Gets a description of this order item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Gets a special instructions for this order item
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                if (!RoomForCream) special.Add("Hold Cream");
+                //if (!Decaf) special.Add("Hold")
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// Overrides the public Size method 
         /// To set specific amount for Tyrannotea
@@ -76,6 +115,8 @@ namespace DinoDiner.Menu.Drinks
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         /// <summary>
         /// Method for adding ice if customer wants it
@@ -83,6 +124,8 @@ namespace DinoDiner.Menu.Drinks
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         public override string ToString()
         {

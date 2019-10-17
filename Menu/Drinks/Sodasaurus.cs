@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
     /// Class that represents the Sodasaurus drink menu item
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Default flavor is cola for the Sodasaurus flavor
@@ -21,6 +22,20 @@ namespace DinoDiner.Menu.Drinks
         /// Private size variable for switch case
         /// </summary>
         private Size size;
+        /// <summary>
+        /// The PropertyChanged event handler 
+        /// Notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Helper function for notifying of property changes
+        /// </summary>
+        /// <param name="propertyName">Name of the property that is changed</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
         /// <summary>
         /// Gets a description of this order item
         /// </summary>

@@ -5,14 +5,50 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
     /// Class that represents the Meteor Mac and Cheese side menu item
     /// </summary>
-    public class MeteorMacAndCheese : Side
+    public class MeteorMacAndCheese : Side, INotifyPropertyChanged, IOrderItem
     {
+        /// <summary>
+        /// The PropertyChanged event handler 
+        /// Notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Helper function for notifying of property changes
+        /// </summary>
+        /// <param name="propertyName">Name of the property that is changed</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+        /// <summary>
+        /// Gets and sets the description
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// Sets the price, size, and calories of the default size  
         /// Adds the ingredients to the menu

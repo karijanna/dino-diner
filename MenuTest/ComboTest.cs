@@ -15,6 +15,7 @@ namespace MenuTest
     /// </summary>
     public class ComboTest
     {
+        [Fact]
         public void ComboMustBeSuppliedAnEntree()
         {
 

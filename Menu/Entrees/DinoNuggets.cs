@@ -3,6 +3,7 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Entrees
 {
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// Dino Nuggets price, calories, and list of ingredients
     /// Contains method to add extra nuggets to the order
     /// </summary>
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Count of nuggets when customer adds extra nugget count to the order
@@ -19,6 +20,41 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Adds the list of ingredients to the menu
         /// </summary>
+        /// /// <summary>
+        /// The PropertyChanged event handler 
+        /// Notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Helper function for notifying of property changes
+        /// </summary>
+        /// <param name="propertyName">Name of the property that is changed</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+        /// <summary>
+        /// Gets and sets the description
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>(); //Feel like there's something else..
+                return special.ToArray();
+            }
+        }
         public override List<string> Ingredients
         {
             get

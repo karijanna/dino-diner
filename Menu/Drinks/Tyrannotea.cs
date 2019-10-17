@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
     /// Class that represents the Tyrannotea drink menu item
     /// </summary>
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Private size variable for switch case
@@ -25,6 +26,43 @@ namespace DinoDiner.Menu.Drinks
         /// Variable for adding lemon to the tea
         /// </summary>
         public bool Lemon = false;
+        /// <summary>
+        /// The PropertyChanged event handler 
+        /// Notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Helper function for notifying of property changes
+        /// </summary>
+        /// <param name="propertyName">Name of the property that is changed</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+        /// <summary>
+        /// Gets a description of this order item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Gets a special instructions for this order item
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Lemon) special.Add("Hold Lemon");
+                //if (!Sweet) special.Add("Hold Sugar");
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// Overrides the public Size method 
         /// To set specific amount for Tyrannotea
@@ -79,6 +117,8 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         /// <summary>
         /// Method for adding sugar to tea

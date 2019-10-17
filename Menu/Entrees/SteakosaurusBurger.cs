@@ -3,6 +3,7 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Entrees
 {
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// Steakosaurus Burger price, calories, and list of ingredients
     /// Contains methods to take off certain ingredients if customer wants to
     /// </summary>
-    public class SteakosaurusBurger : Entree
+    public class SteakosaurusBurger : Entree, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Customers can take off the bun off of their order
@@ -28,6 +29,45 @@ namespace DinoDiner.Menu.Entrees
         /// Customers can take off mustard off of their order
         /// </summary>
         private bool mustard = true;
+        /// <summary>
+        /// The PropertyChanged event handler 
+        /// Notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Helper function for notifying of property changes
+        /// </summary>
+        /// <param name="propertyName">Name of the property that is changed</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+        /// <summary>
+        /// Gets and sets the description
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!wholeWheatBun) special.Add("Hold Whole Wheat Bun");
+                if (!pickle) special.Add("Hold Pickle");
+                if (!ketchup) special.Add("Hold Ketchup");
+                if (!mustard) special.Add("Hold Mustard");
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// Adds the ingredients list to the menu for Steakosaurus Burger
         /// </summary>
@@ -57,6 +97,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldBun()
         {
             wholeWheatBun = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         /// <summary>
         /// Method to take off the pickles
@@ -64,6 +106,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldPickle()
         {
             pickle = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         /// <summary>
         /// Method to take off the ketchup
@@ -71,6 +115,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldKetchup()
         {
             ketchup = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         /// <summary>
         /// Method to take off the mustard
@@ -78,6 +124,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMustard()
         {
             mustard = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         public override string ToString()
         {

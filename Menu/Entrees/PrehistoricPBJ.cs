@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// Prehistoric PBJ calories, price, and list of ingredients 
     /// Contains methods that takes off certain ingredients if customers want to
     /// </summary>
-    public class PrehistoricPBJ : Entree, INotifyPropertyChanged
+    public class PrehistoricPBJ : Entree, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Customers can take off peanut butter off of their order
@@ -98,9 +98,9 @@ namespace DinoDiner.Menu.Entrees
             NotifyOfPropertyChange("Ingredients");
         }
         /// <summary>
-        /// 
+        /// Adds the menu item name onto the menu
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The name of the entree</returns>
         public override string ToString()
         {
             return "Prehistoric PB&J";

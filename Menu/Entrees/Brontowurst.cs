@@ -3,6 +3,7 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Entrees
 {
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// Brontowurst calories, price, and list of ingredients 
     /// Contains methods to take off certain ingredients if customers want to
     /// </summary>
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Customers can take off bun off of their order
@@ -24,6 +25,44 @@ namespace DinoDiner.Menu.Entrees
         /// Customers can take of onions off of their order
         /// </summary>
         private bool onions = true;
+        /// <summary>
+        /// The PropertyChanged event handler 
+        /// Notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Helper function for notifying of property changes
+        /// </summary>
+        /// <param name="propertyName">Name of the property that is changed</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+        /// <summary>
+        /// Gets and sets the description
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!wholeWheatBun) special.Add("Hold Whole Wheat Bun");
+                if (!onions) special.Add("Hold Onions");
+                if (!peppers) special.Add("Hold Peppers");
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// Adds the list of ingredietns to the menu
         /// </summary>
@@ -52,6 +91,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldBun()
         {
             wholeWheatBun = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         /// <summary>
         /// Method to take off the peppers
@@ -59,6 +100,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldPeppers()
         {
             peppers = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         /// <summary>
         /// Method to take off the onions
@@ -66,6 +109,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             onions = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         public override string ToString()
         {

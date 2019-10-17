@@ -3,6 +3,7 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Entrees
 {
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// Veloci Wrap price, calories, and list of ingredients
     /// Contains methods to take off certain ingredients if customer wants to
     /// </summary>
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Customers can ask for dressing off their order
@@ -24,6 +25,44 @@ namespace DinoDiner.Menu.Entrees
         /// Customers can ask for cheese off their order
         /// </summary>
         private bool cheese = true;
+        /// <summary>
+        /// The PropertyChanged event handler 
+        /// Notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Helper function for notifying of property changes
+        /// </summary>
+        /// <param name="propertyName">Name of the property that is changed</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+        /// <summary>
+        /// Gets and sets the description
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Gets any special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!dressing) special.Add("Hold Dressing");
+                if (!lettuce) special.Add("Hold Lettuce");
+                if (!cheese) special.Add("Hold Cheese");
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// The ingredients list that appears on the menu
         /// </summary>
@@ -55,6 +94,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldDressing()
         {
             dressing = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -63,6 +104,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldLettuce()
         {
             lettuce = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -71,6 +114,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             cheese = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         public override string ToString()
         {
