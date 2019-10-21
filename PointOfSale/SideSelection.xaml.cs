@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
+using DinoDiner.Menu.Sides;
+using DinoDiner.Menu.Drinks;
 
 namespace PointOfSale
 {
@@ -23,6 +27,18 @@ namespace PointOfSale
         public SideSelection()
         {
             InitializeComponent();
+        }
+        public void AddFryceritops(object sender, RoutedEventArgs args)
+        {
+            Order order = (Order)DataContext;
+            order.Items.Add(new Fryceritops());
+            BtnAddFryceritops.IsEnabled = false;
+            BtnAddTriceritots.IsEnabled = false;
+            BtnAddMezzorellaSticks.IsEnabled = false;
+            BtnAddMeteorMacAndCheese.IsEnabled = false;
+            BtnPickLarge.IsEnabled = true;
+            BtnPickMedium.IsEnabled = true;
+            BtnPickSmall.IsEnabled = true;
         }
     }
 }

@@ -20,13 +20,13 @@
             <RowDefinition Height="95*"/>
             <RowDefinition Height="94*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" Content="Fryceritops" Grid.Row="0" Margin="10,51,9.667,10.333"/>
-        <Button Grid.Column="0" Content="Mezzorella Sticks" Grid.Row="2" Margin="10,10.333,9.667,10"/>
-        <Button Grid.Column="0" Content="Triceritots" Grid.Row="3" Margin="10,10,9.667,10"/>
-        <Button Grid.Column="0" Content="Meteor Mac &amp; Cheese" Margin="10,9.667,9.667,9.667" Grid.Row="1"/>
-        <Button Grid.Column="1" Content="Medium" Margin="16.333,36.667,10.333,42" Grid.RowSpan="2" Grid.Row="1"/>
-        <Button Grid.Column="1" Content="Small" Margin="16.333,51,10.333,74" Grid.RowSpan="2"/>
-        <Button Grid.Column="1" Content="Large" Margin="16.333,74,10.333,10" Grid.RowSpan="2" Grid.Row="2"/>
+        <Button Name="BtnAddFryceritops" Click="AddFryceritops" Grid.Column="0" Content="Fryceritops" Grid.Row="0" Margin="10,51,9.667,10.333"/>
+        <Button Name="BtnAddMezzorellaSticks" Click="AddMezzorellaSticks" Grid.Column="0" Content="Mezzorella Sticks" Grid.Row="2" Margin="10,10.333,9.667,10"/>
+        <Button Name="BtnAddTriceritots" Click="AddTriceritots" Grid.Column="0" Content="Triceritots" Grid.Row="3" Margin="10,10,9.667,10"/>
+        <Button Name="BtnAddMeteorMacAndCheese" Click="AddMeteorMacAndCheese" Grid.Column="0" Content="Meteor Mac &amp; Cheese" Margin="10,9.667,9.667,9.667" Grid.Row="1"/>
+        <Button Name="BtnPickMedium" Click="PickMedium" Grid.Column="1" Content="Medium" Margin="16.333,36.667,10.333,42" Grid.RowSpan="2" Grid.Row="1"/>
+        <Button Name="BtnPickSmall" Click="PickSmall"  Grid.Column="1" Content="Small" Margin="16.333,51,10.333,74" Grid.RowSpan="2"/>
+        <Button Name="BtnPickLarge" Click="PickLarge" Grid.Column="1" Content="Large" Margin="16.333,74,10.333,10" Grid.RowSpan="2" Grid.Row="2"/>
         <TextBlock Grid.Row="0" Margin="10,0" Text="Add To Order" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="780" Grid.ColumnSpan="3" TextAlignment="Center"/>
         <TextBlock Grid.Row="0" Margin="10,28,9.667,0" Text="Side" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="247" TextAlignment="Center"/>
         <TextBlock Grid.Row="0" Margin="0.333,28,0.333,0" Text="Size" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="266" TextAlignment="Center" Grid.Column="1"/>
