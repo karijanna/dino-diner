@@ -19,6 +19,14 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public bool Lemon = false;
         /// <summary>
+        /// 
+        /// </summary>
+        public override void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChange("Special");
+        }
+        /// <summary>
         /// The PropertyChanged event handler 
         /// Notifies of changes to the Price, Description, and Special properties
         /// </summary>
@@ -35,7 +43,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets a description of this order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -45,12 +53,13 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets a special instructions for this order item
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (!Lemon) special.Add("Hold Lemon");
+                if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }
         }
@@ -81,6 +90,7 @@ namespace DinoDiner.Menu.Drinks
             Size = Size.Small;
             Price = 0.10;
             Calories = 0;
+            Ice = true;
         }
         /// <summary>
         /// Method that adds lemon to the water

@@ -42,7 +42,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets and sets the description
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -52,7 +52,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets any special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

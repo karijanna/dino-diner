@@ -27,6 +27,14 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public bool RoomForCream = false;
         /// <summary>
+        /// 
+        /// </summary>
+        public override void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChange("Special");
+        }
+        /// <summary>
         /// The PropertyChanged event handler 
         /// Notifies of changes to the Price, Description, and Special properties
         /// </summary>
@@ -43,7 +51,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets a description of this order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -53,13 +61,13 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets a special instructions for this order item
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (!Ice) special.Add("Hold Ice");
-                if (!RoomForCream) special.Add("Hold Cream");
+                if (Ice) special.Add("Add Ice");
+                if (RoomForCream) special.Add("Leave Room For Cream");
                 //if (!Decaf) special.Add("Hold")
                 return special.ToArray();
             }
@@ -108,6 +116,7 @@ namespace DinoDiner.Menu.Drinks
             Size = Size.Small;
             Price = 0.59;
             Calories = 2;
+            //Ice = false;
         }
         /// <summary>
         /// Method for making room for cream

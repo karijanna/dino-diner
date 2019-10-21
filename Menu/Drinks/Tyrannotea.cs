@@ -19,6 +19,14 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         private Size size;
         /// <summary>
+        /// 
+        /// </summary>
+        public override void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChange("Special");
+        }
+        /// <summary>
         /// Variable for making the tea sweet
         /// </summary>
         public bool Sweet = false;
@@ -43,7 +51,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets a description of this order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -53,12 +61,13 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets a special instructions for this order item
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (!Lemon) special.Add("Hold Lemon");
+                if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
                 //if (!Sweet) special.Add("Hold Sugar");
                 return special.ToArray();
             }
@@ -110,6 +119,7 @@ namespace DinoDiner.Menu.Drinks
             Size = Size.Small;
             Price = 0.99;
             Calories = 8;
+            Ice = true;
         }
         /// <summary>
         /// Method for adding lemon to the tea

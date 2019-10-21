@@ -37,7 +37,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets and sets the description
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -47,11 +47,12 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets any special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
-                List<string> special = new List<string>(); //Feel like there's something else..
+                List<string> special = new List<string>();
+                if (nuggetCount > 6) special.Add(string.Format("{0} Extra Nugget", nuggetCount - 6));
                 return special.ToArray();
             }
         }
@@ -84,6 +85,8 @@ namespace DinoDiner.Menu.Entrees
             nuggetCount++;
             Price += 0.25;
             Calories += 59;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
         public override string ToString()
         {

@@ -39,7 +39,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets a description of this order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -49,7 +49,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets a special instructions for this order item
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
@@ -57,6 +57,11 @@ namespace DinoDiner.Menu.Drinks
                 if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }
+        }
+        public override void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChange("Special");
         }
         /// <summary>
         /// Overrides the public Size method 
@@ -102,6 +107,7 @@ namespace DinoDiner.Menu.Drinks
             Size = Size.Small;
             Price = 1.50;
             Calories = 112;
+            Ice = true;
         }
         /// <summary>
         /// 

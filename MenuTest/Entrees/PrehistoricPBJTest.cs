@@ -73,6 +73,7 @@ namespace MenuTest.Entrees
         public void SpecialShouldHoldPeanutButter()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldPeanutButter();
             Assert.Collection<string>(pbj.Special,
                 item =>
                 {
@@ -83,6 +84,7 @@ namespace MenuTest.Entrees
         public void SpecialShouldHoldJelly()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldJelly();
             Assert.Collection<string>(pbj.Special,
                 item =>
                 {
@@ -93,6 +95,8 @@ namespace MenuTest.Entrees
         public void SpecialShouldHoldPeanutButterAndJelly()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldPeanutButter();
+            pbj.HoldJelly();
             Assert.Collection<string>(pbj.Special,
                 item =>
                 {
@@ -102,6 +106,12 @@ namespace MenuTest.Entrees
                 {
                     Assert.Equal("Hold Jelly", item);
                 });
+        }
+        [Fact]
+        public void PrehistoricPBJDescriptionShouldGiveName()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Equal("Prehistoric PB&J", pbj.Description);
         }
     }
 

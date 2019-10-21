@@ -127,7 +127,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> ingredients = new List<string>();
-                ingredients.Add(Entree.ToString());
+                //ingredients.Add(Entree.ToString());
                 ingredients.AddRange(Entree.Special);
                 ingredients.Add(Side.ToString());
                 ingredients.AddRange(Side.Special);

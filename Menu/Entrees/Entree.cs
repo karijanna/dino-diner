@@ -20,5 +20,13 @@ namespace DinoDiner.Menu.Entrees
         /// Gets the ingredients list
         /// </summary>
         public abstract List<string> Ingredients { get; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public abstract string Description { get; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public abstract string[] Special { get; }
     }
 }

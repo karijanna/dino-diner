@@ -111,5 +111,82 @@ namespace MenuTest.Drinks
             coffee.LeaveRoomForCream();
             Assert.True(coffee.RoomForCream);
         }
+        [Fact]
+        public void AddIceShouldNotifyChangesOfSpecialPropertyChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Special", () =>
+            {
+                coffee.AddIce();
+            });
+        }
+        [Fact]
+        public void LeaveRoomForCreamShouldNotifyChangesOfSpecialPropertyChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Special", () =>
+            {
+                coffee.LeaveRoomForCream();
+            });
+        }
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.Empty(coffee.Special);
+        }
+        [Fact]
+        public void SpecialShouldAddIce()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.AddIce();
+            Assert.Collection<string>(coffee.Special,
+            item =>
+            {
+                Assert.Equal("Add Ice", item);
+            });
+        }
+        [Fact]
+        public void SpecialShouldLeaveRoomForCream()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.LeaveRoomForCream();
+            Assert.Collection<string>(coffee.Special,
+            item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            });
+        }
+        [Fact]
+        public void SpecialShouldHoldOrAddAllSpecials()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.AddIce();
+            coffee.LeaveRoomForCream();
+            Assert.Collection<string>(coffee.Special,
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Leave Room For Cream", item);
+                });
+        }
+        [Theory]
+        [InlineData(Size.Small, false)]
+        [InlineData(Size.Medium, false)]
+        [InlineData(Size.Large, false)]
+        [InlineData(Size.Small, true)]
+        [InlineData(Size.Medium, true)]
+        [InlineData(Size.Large, true)]
+        public void JurrasicJavaDescriptionShouldGiveNameForSizeAndDecaf(Size size, bool decaf)
+        {
+            JurassicJava java = new JurassicJava();
+            java.Size = size;
+            java.Decaf = decaf;
+            if (decaf) Assert.Equal($"{size} Decaf Jurassic Java", java.ToString());
+            else Assert.Equal($"{size} Jurassic Java", java.ToString());
+        }
     }
 }

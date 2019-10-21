@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Abstract class drink that implements within the drinks menu
     /// </summary>
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem
     {
         public abstract Size Size { get; set; }
         /// <summary>
@@ -29,13 +29,18 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Variable ice that will be true in default
         /// </summary>
-        public bool Ice = true;
+        public bool Ice = false;
         /// <summary>
         /// Set to false when customers don't want ice in their drinks
         /// </summary>
-        public void HoldIce()
-        {
-            Ice = false;
-        }
+        public abstract void HoldIce();
+        /// <summary>
+        /// 
+        /// </summary>
+        public abstract string[] Special { get; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public abstract string Description { get; }
     }
 }
