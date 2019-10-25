@@ -14,12 +14,25 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBox Text="Order" Grid.Row="0"/>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}">
+        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}" Name="OrderItems" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Path=Description}"/>
+                            <Button Click="OnRemoveItem"
+                                        Background="Red"
+                                        Foreground="White"
+                                        Grid.Column="1">
+                                X
+                            </Button>
+                        </Grid>
                         <ListBox ItemsSource="{Binding Path=Ingredients}"></ListBox>
+                        <ListBox ItemsSource="{Binding Path=Special}"></ListBox>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -27,9 +40,9 @@
             <Border Grid.Row="2">
             <StackPanel Orientation="Horizontal">
                 <TextBox Text="Price: "/>
-                <TextBlock Text="$___"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=SubtotalCost, StringFormat=n2}"/>
             </StackPanel>
         </Border>
-        <TextBox Text="Buttons Go Here" Grid.Row="3"/>
+        <TextBox Text="Button" Grid.Row="3"/>
     </Grid>
 </UserControl>

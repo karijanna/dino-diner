@@ -27,22 +27,8 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
-            /*Order order = new Order();
-            OrderList.DataContext = order;
-            OrderInterface.DataContext = order;*/
             Order order = (Order)DataContext;
-            order.Items.Add(new Fryceritops());
-            order.Items.Add(new Tyrannotea());
-            order.Items.Add(new Fryceritops());
-            order.Items.Add(new Tyrannotea());
-            order.Items.Add(new Fryceritops());
-            order.Items.Add(new Tyrannotea());
-            order.Items.Add(new Fryceritops());
-            order.Items.Add(new Tyrannotea());
-            Tyrannotea tea = new Tyrannotea();
-            tea.Sweet = true;
-            tea.Size = DinoDiner.Menu.Size.Medium;
-            order.Items.Add(tea);
+            OrderControl.NavigationService = OrderInterface.NavigationService;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -63,6 +49,7 @@ namespace PointOfSale
         public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
             SetFrameDataContext();
+            //BindDataContentToPage();
         }
 
         private void SetFrameDataContext()
@@ -70,6 +57,14 @@ namespace PointOfSale
             FrameworkElement content = OrderInterface.Content as FrameworkElement;
             if (content == null) return;
             content.DataContext = OrderInterface.DataContext;
+        }
+
+        private void BindDataContentToPage()
+        {
+            if(OrderInterface.Content is FrameworkElement element)
+            {
+                element.DataContext = OrderInterface.DataContext;
+            }
         }
     }
 }

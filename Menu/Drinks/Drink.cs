@@ -5,14 +5,29 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
     /// Abstract class drink that implements within the drinks menu
     /// </summary>
-    public abstract class Drink : IMenuItem, IOrderItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The PropertyChanged event handler 
+        /// Notifies of changes to the Price, Description, and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Helper function for notifying of property changes
+        /// </summary>
+        /// <param name="propertyName">Name of the property that is changed</param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
         public abstract Size Size { get; set; }
         /// <summary>
         /// Gets and sets the price
