@@ -23,6 +23,18 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public bool Decaf = false;
         /// <summary>
+        /// Method for making coffee decaf
+        /// </summary>
+        public bool MakeDecaf
+        {
+            get { return Decaf; }
+            set
+            {
+                Decaf = value;
+                NotifyOfPropertyChange("Special");
+            }
+        }
+        /// <summary>
         /// Variable for making room for cream
         /// </summary>
         public bool RoomForCream = false;
@@ -68,7 +80,7 @@ namespace DinoDiner.Menu.Drinks
                 List<string> special = new List<string>();
                 if (Ice) special.Add("Add Ice");
                 if (RoomForCream) special.Add("Leave Room For Cream");
-                //if (!Decaf) special.Add("Hold")
+                if (MakeDecaf) special.Add("Decaf");
                 return special.ToArray();
             }
         }

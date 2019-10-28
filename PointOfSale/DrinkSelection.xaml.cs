@@ -38,7 +38,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Items.Add(drink);
+                order.Add(drink);
                 this.Drink = drink;
             }
         }
@@ -234,7 +234,10 @@ namespace PointOfSale
         }
         protected void SelectSweet(object sender, RoutedEventArgs args)
         {
-
+            if (Drink is Tyrannotea tea)
+            {
+                tea.MakeSweet = true;
+            }
         }
         protected void SelectCream(object sender, RoutedEventArgs args)
         {
@@ -245,7 +248,10 @@ namespace PointOfSale
         }
         protected void SelectDecaf(object sender, RoutedEventArgs args)
         {
-
+            if (Drink is JurassicJava coffee)
+            {
+                coffee.MakeDecaf = true;
+            }
         }
         protected void SelectAddIce(object sender, RoutedEventArgs args)
         {

@@ -69,6 +69,7 @@ namespace DinoDiner.Menu.Drinks
                 if (Lemon) special.Add("Add Lemon");
                 if (!Ice) special.Add("Hold Ice");
                 //if (!Sweet) special.Add("Hold Sugar");
+                if (MakeSweet) special.Add("Add Sugar");
                 return special.ToArray();
             }
         }
@@ -154,6 +155,7 @@ namespace DinoDiner.Menu.Drinks
                 {
                     Calories /= 2;
                 }
+                NotifyOfPropertyChange("Special");
             }
         }
         public override string ToString()
