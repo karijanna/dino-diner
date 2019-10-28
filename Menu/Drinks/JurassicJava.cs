@@ -38,12 +38,12 @@ namespace DinoDiner.Menu.Drinks
         /// The PropertyChanged event handler 
         /// Notifies of changes to the Price, Description, and Special properties
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Helper function for notifying of property changes
         /// </summary>
         /// <param name="propertyName">Name of the property that is changed</param>
-        private void NotifyOfPropertyChange(string propertyName)
+        public override void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -83,13 +83,20 @@ namespace DinoDiner.Menu.Drinks
                 size = value;
                 switch (size)
                 {
+                    case Size.Small:
+                        Price = 0.59;
+                        Calories = 2;
+                        NotifyOfPropertyChange("Description");
+                        break;
                     case Size.Medium:
                         Price = 0.99;
                         Calories = 4;
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Large:
                         Price = 1.49;
                         Calories = 8;
+                        NotifyOfPropertyChange("Description");
                         break;
                 }
             }

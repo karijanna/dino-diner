@@ -18,16 +18,12 @@ namespace DinoDiner.Menu.Drinks
         /// The PropertyChanged event handler 
         /// Notifies of changes to the Price, Description, and Special properties
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public abstract event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Helper function for notifying of property changes
         /// </summary>
         /// <param name="propertyName">Name of the property that is changed</param>
-        private void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        }
+        public abstract void NotifyOfPropertyChange(string propertyName);
         public abstract Size Size { get; set; }
         /// <summary>
         /// Gets and sets the price

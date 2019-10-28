@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu.Drinks;
 
 namespace PointOfSale
 {
@@ -23,6 +24,10 @@ namespace PointOfSale
         public FlavorSelection()
         {
             InitializeComponent();
+        }
+        private void SelectFlavor(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
         }
     }
 }

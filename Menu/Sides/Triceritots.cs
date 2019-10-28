@@ -80,13 +80,20 @@ namespace DinoDiner.Menu.Sides
                 size = value;
                 switch (size)
                 {
+                    case Size.Small:
+                        Price = 0.99;
+                        Calories = 352;
+                        NotifyOfPropertyChange("Description");
+                        break;
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 410;
+                        NotifyOfPropertyChange("Description");
                         break;
                     case Size.Large:
                         Price = 1.95;
                         Calories = 590;
+                        NotifyOfPropertyChange("Description");
                         break;
                 }
             }

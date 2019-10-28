@@ -15,6 +15,10 @@ namespace DinoDiner.Menu.Drinks
     public class Water : Drink, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
+        /// Private size variable for switch case
+        /// </summary>
+        private Size size;
+        /// <summary>
         /// Water comes without lemon by default
         /// </summary>
         public bool Lemon = false;
@@ -30,12 +34,12 @@ namespace DinoDiner.Menu.Drinks
         /// The PropertyChanged event handler 
         /// Notifies of changes to the Price, Description, and Special properties
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Helper function for notifying of property changes
         /// </summary>
         /// <param name="propertyName">Name of the property that is changed</param>
-        private void NotifyOfPropertyChange(string propertyName)
+        public override void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -51,6 +55,33 @@ namespace DinoDiner.Menu.Drinks
             }
         }
         /// <summary>
+        /// Overrides the public Size method 
+        /// To set specific amount for Tyrannotea
+        /// </summary>
+        public override Size Size
+        {
+            set
+            {
+                size = value;
+                switch (size)
+                {
+                    case Size.Small:
+                        NotifyOfPropertyChange("Description");
+                        break;
+                    case Size.Medium:
+                        NotifyOfPropertyChange("Description");
+                        break;
+                    case Size.Large:
+                        NotifyOfPropertyChange("Description");
+                        break;
+                }
+            }
+            get
+            {
+                return size;
+            }
+        }
+        /// <summary>
         /// Gets a special instructions for this order item
         /// </summary>
         public override string[] Special
@@ -62,13 +93,6 @@ namespace DinoDiner.Menu.Drinks
                 if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }
-        }
-        /// <summary>
-        /// Varriable for setting the size
-        /// </summary>
-        public override Size Size
-        {
-            get; set;
         }
         /// <summary>
         /// List of ingredients for water

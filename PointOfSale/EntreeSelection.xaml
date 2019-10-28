@@ -20,13 +20,13 @@
             <RowDefinition Height="95*"/>
             <RowDefinition Height="94*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="1" Content="Steakosaurus Burger" Margin="16.333,36.667,10.333,42" Grid.RowSpan="2" Grid.Row="1"/>
-        <Button Grid.Column="1" Content="Dino-Nuggets" Margin="16.333,51,10.333,74" Grid.RowSpan="2"/>
+        <Button Name="BtnSteakosaurus" Click="AddSteakosaurus" Grid.Column="1" Content="Steakosaurus Burger" Margin="16.333,36.667,10.333,42" Grid.RowSpan="2" Grid.Row="1"/>
+        <Button Name="BtnDinoNuggets" Click="AddDinoNuggets" Grid.Column="1" Content="Dino-Nuggets" Margin="16.333,51,10.333,74" Grid.RowSpan="2"/>
         <TextBlock Grid.Row="0" Margin="10,0" Text="Add To Order" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="780" Grid.ColumnSpan="3" TextAlignment="Center"/>
-        <Button Grid.Column="2" Content="T-Rex Kingburger" Margin="10.667,36.667,16,42" Grid.RowSpan="2" Grid.Row="1"/>
-        <Button Grid.Column="2" Content="Prehistoric PB&amp;J" Margin="10.667,51,16,73.667" Grid.RowSpan="2"/>
-        <Button Content="Pterodactyl Wings" Margin="10,36.667,16.667,42" Grid.RowSpan="2" Grid.Row="1"/>
-        <Button Content="Brontowurst" Margin="10,51,16.667,73.667" Grid.RowSpan="2"/>
-        <Button Content="Veloci-Wrap" Margin="10,74.333,16.667,10" Grid.RowSpan="2" Grid.Row="2"/>
+        <Button Name="BtnTRexKingburger" Click="AddTRexKingBurger" Grid.Column="2" Content="T-Rex Kingburger" Margin="10.667,36.667,16,42" Grid.RowSpan="2" Grid.Row="1"/>
+        <Button Name="BtnPBJ" Click="AddPBJ" Grid.Column="2" Content="Prehistoric PB&amp;J" Margin="10.667,51,16,73.667" Grid.RowSpan="2"/>
+        <Button Name="BtnPterodactylWings" Click="AddPterodactylWings" Content="Pterodactyl Wings" Margin="10,36.667,16.667,42" Grid.RowSpan="2" Grid.Row="1"/>
+        <Button Name="BtnBrontowurst" Click="AddBrontowurst" Content="Brontowurst" Margin="10,51,16.667,73.667" Grid.RowSpan="2"/>
+        <Button Name="BtnVelociWrap" Click="AddVelociWrap" Content="Veloci-Wrap" Margin="10,74.333,16.667,10" Grid.RowSpan="2" Grid.Row="2"/>
     </Grid>
 </Page>

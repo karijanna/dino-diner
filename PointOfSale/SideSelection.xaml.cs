@@ -96,14 +96,17 @@ namespace PointOfSale
         protected void PickSmall(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Small);
+            NavigationService.Navigate(new MenuCategorySelection());
         }
         protected void PickMedium(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Medium);
+            NavigationService.Navigate(new MenuCategorySelection());
         }
         protected void PickLarge(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Large);
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

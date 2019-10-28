@@ -22,16 +22,15 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="15"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding Path=Description}"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Path=Description}"/>
                             <Button Click="OnRemoveItem"
                                         Background="Red"
                                         Foreground="White"
                                         Grid.Column="1">
-                                X
+                                 X
                             </Button>
                         </Grid>
-                        <ListBox ItemsSource="{Binding Path=Ingredients}"></ListBox>
                         <ListBox ItemsSource="{Binding Path=Special}"></ListBox>
                     </StackPanel>
                 </DataTemplate>
