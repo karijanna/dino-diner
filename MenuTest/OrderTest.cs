@@ -15,8 +15,8 @@ namespace MenuTest
         public void OrderClassWorks()
         {
             Order order = new Order();
-            order.Items.Add(new PrehistoricPBJ());
-            order.Items.Add(new Sodasaurus());
+            order.Add(new PrehistoricPBJ());
+            order.Add(new Sodasaurus());
             Assert.Equal(8.02, order.TotalCost);
         }
         [Fact]
@@ -29,10 +29,10 @@ namespace MenuTest
             coffee.Size = Size.Medium;
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
             mmc.Size = Size.Large;
-            order.Items.Add(dn);
-            order.Items.Add(coffee);
-            order.Items.Add(mmc);
-            order.Items.Add(new VelociWrap());
+            order.Add(dn);
+            order.Add(coffee);
+            order.Add(mmc);
+            order.Add(new VelociWrap());
             Assert.Equal(14.30, order.TotalCost);
         }
         [Fact]
@@ -41,9 +41,9 @@ namespace MenuTest
             Order order = new Order();
             Fryceritops ft = new Fryceritops();
             ft.Price = -45;
-            order.Items.Add(new PrehistoricPBJ());
-            order.Items.Add(new Tyrannotea());
-            order.Items.Add(ft);
+            order.Add(new PrehistoricPBJ());
+            order.Add(new Tyrannotea());
+            order.Add(ft);
             Assert.Equal(0, order.TotalCost);
         }
     }

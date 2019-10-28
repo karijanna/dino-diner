@@ -211,7 +211,7 @@ namespace PointOfSale
         }
         protected void SelectFlavor(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            NavigationService.Navigate(new FlavorSelection(Drink));
         }
         protected void SelectDone(object sender, RoutedEventArgs args)
         {

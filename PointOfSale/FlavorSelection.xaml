@@ -20,13 +20,13 @@
             <RowDefinition Height="95*"/>
             <RowDefinition Height="94*"/>
         </Grid.RowDefinitions>
-        <Button Click="SelectFlavor" Grid.Column="1" Content="Orange" Margin="16.333,36.667,10.333,42" Grid.RowSpan="2" Grid.Row="1"/>
-        <Button Click="SelectFlavor" Grid.Column="1" Content="Chocolate" Margin="16.333,51,10.333,74" Grid.RowSpan="2"/>
+        <Button Click="SelectOrange" Grid.Column="1" Content="Orange" Margin="16.333,36.667,10.333,42" Grid.RowSpan="2" Grid.Row="1"/>
+        <Button Click="SelectChocolate" Grid.Column="1" Content="Chocolate" Margin="16.333,51,10.333,74" Grid.RowSpan="2"/>
         <TextBlock Grid.Row="0" Margin="10,0" Text="Add To Order" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="780" Grid.ColumnSpan="3" TextAlignment="Center"/>
-        <Button Click="SelectFlavor" Grid.Column="2" Content="Root Beer" Margin="10.667,36.667,16,42" Grid.RowSpan="2" Grid.Row="1"/>
-        <Button Click="SelectFlavor" Grid.Column="2" Content="Cola" Margin="10.667,51,16,73.667" Grid.RowSpan="2"/>
-        <Button Click="SelectFlavor" Content="Lime" Margin="10,36.667,16.667,42" Grid.RowSpan="2" Grid.Row="1"/>
-        <Button Click="SelectFlavor" Content="Cherry" Margin="10,51,16.667,73.667" Grid.RowSpan="2"/>
-        <Button Click="SelectFlavor" Content="Vanilla" Margin="10,74.333,16.667,10" Grid.RowSpan="2" Grid.Row="2"/>
+        <Button Click="SelectRootBeer" Grid.Column="2" Content="Root Beer" Margin="10.667,36.667,16,42" Grid.RowSpan="2" Grid.Row="1"/>
+        <Button Click="SelectCola" Grid.Column="2" Content="Cola" Margin="10.667,51,16,73.667" Grid.RowSpan="2"/>
+        <Button Click="SelectLime" Content="Lime" Margin="10,36.667,16.667,42" Grid.RowSpan="2" Grid.Row="1"/>
+        <Button Click="SelectCherry" Content="Cherry" Margin="10,51,16.667,73.667" Grid.RowSpan="2"/>
+        <Button Click="SelectVanilla" Content="Vanilla" Margin="10,74.333,16.667,10" Grid.RowSpan="2" Grid.Row="2"/>
     </Grid>
 </Page>

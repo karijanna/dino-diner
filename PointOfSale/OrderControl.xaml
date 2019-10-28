@@ -42,6 +42,6 @@
                 <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=SubtotalCost, StringFormat=n2}"/>
             </StackPanel>
         </Border>
-        <TextBox Text="Button" Grid.Row="3"/>
+        <TextBox Grid.Row="3"/>
     </Grid>
 </UserControl>

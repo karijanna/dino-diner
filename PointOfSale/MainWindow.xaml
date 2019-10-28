@@ -12,7 +12,16 @@
     </Window.DataContext>
     <DockPanel>
         <local:OrderControl DockPanel.Dock="Right" Width="200" x:Name="OrderControl"/>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Click="OnDone">Return to Main Screen</Button>
+        </Grid>
         <Frame Name ="OrderInterface" 
+               NavigationUIVisibility="Hidden"
                LoadCompleted="OnLoadCompleted"
                DataContextChanged ="OnDataContextChanged" 
                Source="MenuCategorySelection.xaml"/>

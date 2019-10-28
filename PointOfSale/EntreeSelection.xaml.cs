@@ -35,6 +35,19 @@ namespace PointOfSale
             InitializeComponent();
             Entree = entree;
         }
+        /*private void OnSelectComebo(object sender, RoutedCommand args)
+        {
+            NavigationService.Navigate(new ComboSelection());
+        }*/
+        private void OnAddPrehistoricPBJ(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Add(pbj);
+                NavigationService.Navigate(new PrehistoricPBJCustomization(pbj));
+            }
+        }
         private void SelectEntree(Entree entree)
         {
             if (DataContext is Order order)

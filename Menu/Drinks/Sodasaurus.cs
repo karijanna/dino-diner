@@ -58,6 +58,11 @@ namespace DinoDiner.Menu.Drinks
                 return special.ToArray();
             }
         }
+        public void ChangeFlavor(SodasaurusFlavor flavor)
+        {
+            this.Flavor = flavor;
+            NotifyOfPropertyChange("Description");
+        }
         public override void HoldIce()
         {
             Ice = false;
