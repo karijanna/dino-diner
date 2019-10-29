@@ -29,25 +29,22 @@ namespace DinoDiner.Menu
         {
             get
             {
-                foreach(IOrderItem item in Items)
+                double subTotal = 0;
+                foreach (IOrderItem io in items)
                 {
-                    price += item.Price;
+                    subTotal += io.Price;
                 }
-                if (price >= 0)
-                {
-                    return price;
-                }
-                else
-                {
-                    return 0;
-                }
+                if (subTotal > 0) return Math.Truncate(subTotal * 100) / 100;
+                else return 0; 
             }
         }
         public double SalesTaxCost
         {
             get
             {
-                return SalesTaxRate * SubtotalCost;
+                double cost = SalesTaxRate * SubtotalCost;
+                cost = Math.Truncate(cost * 100) / 100;
+                return cost;
             }
         }
         private double salesTaxRate = 0;
@@ -69,7 +66,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return SubtotalCost + SalesTaxCost;
+                return Math.Truncate((SubtotalCost + SalesTaxCost) * 100) / 100;
             }
         }
         public Order()
