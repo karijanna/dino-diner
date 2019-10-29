@@ -24,6 +24,9 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         /// <param name="propertyName">Name of the property that is changed</param>
         public abstract void NotifyOfPropertyChange(string propertyName);
+        /// <summary>
+        /// Sets the size
+        /// </summary>
         public abstract Size Size { get; set; }
         /// <summary>
         /// Gets and sets the price
@@ -46,11 +49,11 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public abstract void HoldIce();
         /// <summary>
-        /// 
+        /// Gets the special requirements for a menu item
         /// </summary>
         public abstract string[] Special { get; }
         /// <summary>
-        /// 
+        /// Gets the description of a menu item
         /// </summary>
         public abstract string Description { get; }
     }

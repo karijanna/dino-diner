@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* OrderControl.xaml.cs
+ * Author: Karijanna Miller
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +28,22 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        /// <summary>
+        /// Gets and sets the navigation to certain pages
+        /// </summary>
         public NavigationService NavigationService {get; set;}
+        /// <summary>
+        /// Constructor for order control class
+        /// </summary>
         public OrderControl()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Navigates to the side selection when side is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
         {
             if (OrderItems.SelectedItem is Side side)
@@ -37,6 +52,11 @@ namespace PointOfSale
                 NavigationService?.Navigate(new SideSelection(side));
             }
         }
+        /// <summary>
+        /// Removes an order item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="ars"></param>
         private void OnRemoveItem(object sender, RoutedEventArgs ars)
         {
             if(DataContext is Order order)

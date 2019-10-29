@@ -1,10 +1,17 @@
-﻿using System;
+﻿/* Entree.cs
+ * Author: Karijanna Miller
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Sets the price, calories, ingredients, and specials for each entree item
+    /// </summary>
     public abstract class Entree : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
@@ -32,11 +39,11 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public abstract List<string> Ingredients { get; }
         /// <summary>
-        /// 
+        /// Gets the description of the menu item
         /// </summary>
         public abstract string Description { get; }
         /// <summary>
-        /// 
+        /// Gets the special instructions for the menu item
         /// </summary>
         public abstract string[] Special { get; }
     }

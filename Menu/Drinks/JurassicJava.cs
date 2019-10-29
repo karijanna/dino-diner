@@ -39,7 +39,7 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public bool RoomForCream = false;
         /// <summary>
-        /// 
+        /// Holds ice when method is called
         /// </summary>
         public override void HoldIce()
         {
@@ -155,6 +155,10 @@ namespace DinoDiner.Menu.Drinks
             NotifyOfPropertyChange("Special");
             NotifyOfPropertyChange("Ingredients");
         }
+        /// <summary>
+        /// Turns the order into a string
+        /// </summary>
+        /// <returns>The readable version of the order</returns>
         public override string ToString()
         {
             if (Decaf == true)

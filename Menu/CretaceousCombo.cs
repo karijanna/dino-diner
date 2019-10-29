@@ -113,14 +113,14 @@ namespace DinoDiner.Menu
             }
         }
         /// <summary>
-        /// 
+        /// Returns the description of the combo into string
         /// </summary>
         public string Description
         {
             get { return this.ToString(); }
         }
         /// <summary>
-        /// 
+        /// Returns the combo items into string and to an array all together
         /// </summary>
         public string[] Special
         {

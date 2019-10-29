@@ -19,7 +19,7 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         private Size size;
         /// <summary>
-        /// 
+        /// Holds ice when method is called
         /// </summary>
         public override void HoldIce()
         {
@@ -158,6 +158,10 @@ namespace DinoDiner.Menu.Drinks
                 NotifyOfPropertyChange("Special");
             }
         }
+        /// <summary>
+        /// Turns the order into a string
+        /// </summary>
+        /// <returns>The readable version of the order</returns>
         public override string ToString()
         {
             if (Sweet == true)

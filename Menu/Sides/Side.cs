@@ -9,7 +9,9 @@ using System.ComponentModel;
 
 namespace DinoDiner.Menu.Sides
 {
-
+    /// <summary>
+    /// Sets and gets the size, price, calories, ingredients, specials, and description of the side item 
+    /// </summary>
     public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
@@ -42,11 +44,11 @@ namespace DinoDiner.Menu.Sides
         /// </summary>
         public abstract Size Size { get; set; }
         /// <summary>
-        /// 
+        /// Gets the description of the side menu item
         /// </summary>
         public abstract string Description { get; }
         /// <summary>
-        /// 
+        /// Gets the special instructions of the side menu item
         /// </summary>
         public abstract string[] Special { get; }
     }

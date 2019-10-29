@@ -58,11 +58,18 @@ namespace DinoDiner.Menu.Drinks
                 return special.ToArray();
             }
         }
+        /// <summary>
+        /// Changes the flavor of Sodasaurus
+        /// </summary>
+        /// <param name="flavor">The flavor chosen by the change</param>
         public void ChangeFlavor(SodasaurusFlavor flavor)
         {
             this.Flavor = flavor;
             NotifyOfPropertyChange("Description");
         }
+        /// <summary>
+        /// Holds ice when method is called
+        /// </summary>
         public override void HoldIce()
         {
             Ice = false;
@@ -122,9 +129,9 @@ namespace DinoDiner.Menu.Drinks
             Ice = true;
         }
         /// <summary>
-        /// 
+        /// Turns the order into a string
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The readable version of the order</returns>
         public override string ToString()
         {
             return Size.ToString() + " " + Flavor.ToString() + " Sodasaurus";

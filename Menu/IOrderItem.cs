@@ -1,10 +1,17 @@
-﻿using System;
+﻿/* IOrderItem.cs
+ * Author: Karijanna Miller
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// Interface to implement in classes to get price, description, and special instructions
+    /// </summary>
     public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>

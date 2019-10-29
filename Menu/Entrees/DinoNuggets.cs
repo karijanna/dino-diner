@@ -53,6 +53,9 @@ namespace DinoDiner.Menu.Entrees
                 return special.ToArray();
             }
         }
+        /// <summary>
+        /// List of ingredients for DinoNuggets
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -85,6 +88,10 @@ namespace DinoDiner.Menu.Entrees
             NotifyOfPropertyChange("Special");
             NotifyOfPropertyChange("Ingredients");
         }
+        /// <summary>
+        /// Turns the order into a string
+        /// </summary>
+        /// <returns>The readable version of the order</returns>
         public override string ToString()
         {
             return "Dino-Nuggets";

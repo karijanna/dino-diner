@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* MainWindo.xaml.cs
+ * Author: Karijanna Miller
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,21 +28,14 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Constructor for main window
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             Order order = (Order)DataContext;
             OrderControl.NavigationService = OrderInterface.NavigationService;
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void OrderInterface_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-
         }
 
         public void OnLoadCompleted(object sender, NavigationEventArgs args)

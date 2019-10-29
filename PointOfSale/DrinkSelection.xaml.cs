@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*DrinkSelection.xaml.cs
+ * Author: Karijanna Miller
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,16 +28,30 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        /// <summary>
+        /// Gets and sets the drink item
+        /// </summary>
         public Drink Drink { get; set; }
+        /// <summary>
+        /// Constructor for drink selection class
+        /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Overriding constructor of drink selection
+        /// </summary>
+        /// <param name="drink">The drink selected from order control</param>
         public DrinkSelection(Drink drink)
         {
             InitializeComponent();
             Drink = drink; 
         }
+        /// <summary>
+        /// Method for selecting drink item
+        /// </summary>
+        /// <param name="drink">The drink item selected</param>
         private void SelectDrink(Drink drink)
         {
             if (DataContext is Order order)
@@ -42,6 +60,10 @@ namespace PointOfSale
                 this.Drink = drink;
             }
         }
+        /// <summary>
+        /// Selects size of the drink
+        /// </summary>
+        /// <param name="size">The size that the customer chooses</param>
         private void SelectSize(DinoDiner.Menu.Size size)
         {
             if (Drink != null)
@@ -49,6 +71,11 @@ namespace PointOfSale
                 this.Drink.Size = size;
             }
         }
+        /// <summary>
+        /// Add sodasaurus item to the menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void AddSodasaurus(object sender, RoutedEventArgs args)
         {
             SelectDrink(new Sodasaurus());
@@ -81,6 +108,11 @@ namespace PointOfSale
             DrinkGrid.Children.Add(done);
             done.Click += new RoutedEventHandler(SelectDone);
         }
+        /// <summary>
+        /// Adds tyrannotea to the menu item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void AddTyrannotea(object sender, RoutedEventArgs args)
         {
             SelectDrink(new Tyrannotea());
@@ -121,6 +153,11 @@ namespace PointOfSale
             done.Click += new RoutedEventHandler(SelectDone);
             //NavigationService.Navigate(new MenuCategorySelection());
         }
+        /// <summary>
+        /// Adds water to the order selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void AddWater(object sender, RoutedEventArgs args)
         {
             SelectDrink(new Water());
@@ -154,6 +191,11 @@ namespace PointOfSale
             DrinkGrid.Children.Add(done);
             done.Click += new RoutedEventHandler(SelectDone);
         }
+        /// <summary>
+        /// Adds Jurassic Java on the menu selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void AddJurassicJava(object sender, RoutedEventArgs args)
         {
             SelectDrink(new JurassicJava());
@@ -194,33 +236,68 @@ namespace PointOfSale
             DrinkGrid.Children.Add(done);
             done.Click += new RoutedEventHandler(SelectDone);
         }
+        /// <summary>
+        /// Ables the customer to pick size small
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void PickSmall(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Small);
             //NavigationService.Navigate(new MenuCategorySelection());
         }
+        /// <summary>
+        /// Ables the customer to pick size medium
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void PickMedium(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Medium);
             //NavigationService.Navigate(new MenuCategorySelection());
         }
+        /// <summary>
+        /// Ables the customer to pick size large
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void PickLarge(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Large);
             //NavigationService.Navigate(new MenuCategorySelection());
         }
+        /// <summary>
+        /// Ables the customer select flavor by directing user to the flavor selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void SelectFlavor(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new FlavorSelection(Drink));
         }
+        /// <summary>
+        /// When user clicks done, it redirects them to the main page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void SelectDone(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new MenuCategorySelection());
         }
+        /// <summary>
+        /// When clicking hold ice, it adds it to the special list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void SelectHoldIce(object sender, RoutedEventArgs args)
         {
             this.Drink.HoldIce();
         }
+        /// <summary>
+        /// When adding lemon, it adds lemon to the item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void SelectLemon(object sender, RoutedEventArgs args)
         {
             if (Drink is Tyrannotea tea)
@@ -232,6 +309,11 @@ namespace PointOfSale
                 water.AddLemon();
             }
         }
+        /// <summary>
+        /// Adds sugar to the Tyrannotea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void SelectSweet(object sender, RoutedEventArgs args)
         {
             if (Drink is Tyrannotea tea)
@@ -239,6 +321,11 @@ namespace PointOfSale
                 tea.MakeSweet = true;
             }
         }
+        /// <summary>
+        /// Makes room for cream in Jurassic Java 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void SelectCream(object sender, RoutedEventArgs args)
         {
             if (Drink is JurassicJava coffee)
@@ -246,6 +333,11 @@ namespace PointOfSale
                 coffee.LeaveRoomForCream();
             }
         }
+        /// <summary>
+        /// Makes decaf coffee for Jurassic Java 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void SelectDecaf(object sender, RoutedEventArgs args)
         {
             if (Drink is JurassicJava coffee)
@@ -253,6 +345,11 @@ namespace PointOfSale
                 coffee.MakeDecaf = true;
             }
         }
+        /// <summary>
+        /// Adds ice to Jurassic Java
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void SelectAddIce(object sender, RoutedEventArgs args)
         {
             if (Drink is JurassicJava coffee)
