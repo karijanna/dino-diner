@@ -18,23 +18,19 @@ using DinoDiner.Menu.Entrees;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for PrehistoricPBJCustomization.xaml
+    /// Interaction logic for DinoNuggetsCustomization.xaml
     /// </summary>
-    public partial class PrehistoricPBJCustomization : Page
+    public partial class DinoNuggetsCustomization : Page
     {
-        private PrehistoricPBJ pbj;
-        public PrehistoricPBJCustomization(PrehistoricPBJ pbj)
+        private DinoNuggets dn;
+        public DinoNuggetsCustomization(DinoNuggets dn)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.dn = dn;
         }
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnAddNuggets(object sender, RoutedEventArgs args)
         {
-            pbj.HoldPeanutButter();
-        }
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
-        {
-            pbj.HoldJelly();
+            dn.AddNugget();
         }
         private void OnDone(object sender, RoutedEventArgs args)
         {

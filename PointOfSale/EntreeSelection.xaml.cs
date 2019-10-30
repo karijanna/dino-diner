@@ -65,6 +65,7 @@ namespace PointOfSale
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
                 order.Add(pbj);
                 NavigationService.Navigate(new PrehistoricPBJCustomization(pbj));
+                // mine is not working
             }
         }
         /// <summary>
@@ -86,7 +87,6 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void AddBrontowurst(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new Brontowurst());
             BtnBrontowurst.IsEnabled = true;
             BtnDinoNuggets.IsEnabled = true;
             BtnPBJ.IsEnabled = true;
@@ -94,7 +94,9 @@ namespace PointOfSale
             BtnSteakosaurus.IsEnabled = true;
             BtnTRexKingburger.IsEnabled = true;
             BtnVelociWrap.IsEnabled = true;
-            NavigationService.Navigate(new MenuCategorySelection());
+            Brontowurst br = new Brontowurst();
+            SelectEntree(br);
+            NavigationService.Navigate(new BrontowurstCustomization(br));
         }
         /// <summary>
         /// Adds dino nuggets to the order
@@ -103,7 +105,6 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void AddDinoNuggets(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new DinoNuggets());
             BtnBrontowurst.IsEnabled = true;
             BtnDinoNuggets.IsEnabled = true;
             BtnPBJ.IsEnabled = true;
@@ -111,7 +112,9 @@ namespace PointOfSale
             BtnSteakosaurus.IsEnabled = true;
             BtnTRexKingburger.IsEnabled = true;
             BtnVelociWrap.IsEnabled = true;
-            NavigationService.Navigate(new MenuCategorySelection());
+            DinoNuggets dn = new DinoNuggets();
+            SelectEntree(dn);
+            NavigationService.Navigate(new DinoNuggetsCustomization(dn));
         }
         /// <summary>
         /// Adds PBJ to the order
@@ -120,7 +123,6 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void AddPBJ(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new PrehistoricPBJ());
             BtnBrontowurst.IsEnabled = true;
             BtnDinoNuggets.IsEnabled = true;
             BtnPBJ.IsEnabled = true;
@@ -128,7 +130,9 @@ namespace PointOfSale
             BtnSteakosaurus.IsEnabled = true;
             BtnTRexKingburger.IsEnabled = true;
             BtnVelociWrap.IsEnabled = true;
-            NavigationService.Navigate(new MenuCategorySelection());
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            SelectEntree(pbj);
+            NavigationService.Navigate(new PrehistoricPBJCustomization(pbj));
         }
         /// <summary>
         /// Adds pterodactyl wings to the order
@@ -154,7 +158,6 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void AddSteakosaurus(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new SteakosaurusBurger());
             BtnBrontowurst.IsEnabled = true;
             BtnDinoNuggets.IsEnabled = true;
             BtnPBJ.IsEnabled = true;
@@ -162,7 +165,9 @@ namespace PointOfSale
             BtnSteakosaurus.IsEnabled = true;
             BtnTRexKingburger.IsEnabled = true;
             BtnVelociWrap.IsEnabled = true;
-            NavigationService.Navigate(new MenuCategorySelection());
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            SelectEntree(sb);
+            NavigationService.Navigate(new SteakosaurusBurgerCustomization(sb));
         }
         /// <summary>
         /// Adds the t rex king burder to the order
@@ -171,7 +176,6 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void AddTRexKingBurger(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new TRexKingBurger());
             BtnBrontowurst.IsEnabled = true;
             BtnDinoNuggets.IsEnabled = true;
             BtnPBJ.IsEnabled = true;
@@ -179,7 +183,9 @@ namespace PointOfSale
             BtnSteakosaurus.IsEnabled = true;
             BtnTRexKingburger.IsEnabled = true;
             BtnVelociWrap.IsEnabled = true;
-            NavigationService.Navigate(new MenuCategorySelection());
+            TRexKingBurger tk = new TRexKingBurger();
+            SelectEntree(tk);
+            NavigationService.Navigate(new TRexKingBurgerCustomization(tk));
         }
         /// <summary>
         /// Adds veloci wrap to the order
@@ -188,7 +194,6 @@ namespace PointOfSale
         /// <param name="args"></param>
         protected void AddVelociWrap(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new VelociWrap());
             BtnBrontowurst.IsEnabled = true;
             BtnDinoNuggets.IsEnabled = true;
             BtnPBJ.IsEnabled = true;
@@ -196,7 +201,9 @@ namespace PointOfSale
             BtnSteakosaurus.IsEnabled = true;
             BtnTRexKingburger.IsEnabled = true;
             BtnVelociWrap.IsEnabled = true;
-            NavigationService.Navigate(new MenuCategorySelection());
+            VelociWrap vw = new VelociWrap();
+            SelectEntree(vw);
+            NavigationService.Navigate(new VelociWrapCustomization(vw));
         }
     }
 }
