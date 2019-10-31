@@ -196,7 +196,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+HEAD
     <Resource Include="Images\DinoDiner-01.png" />
     <Resource Include="Images\DinoDiner-02.png" />
     <Resource Include="Images\DinoDiner-03.png" />
