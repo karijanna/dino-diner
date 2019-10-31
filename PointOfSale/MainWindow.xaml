@@ -18,7 +18,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Click="OnDone">Return to Main Screen</Button>
+            <Button Grid.Column="1" Click="OnDone">Return to Previous Screen</Button>
+            <Button Grid.Column="0" Click="OnMainScreen">Return to Main Screen</Button>
         </Grid>
         <Frame Name ="OrderInterface" 
                NavigationUIVisibility="Hidden"

@@ -59,32 +59,57 @@ namespace PointOfSale
         }
         private void SelectDinoNuggets(object sender, RoutedEventArgs e)
         {
-            DinoNuggets dw = new DinoNuggets();
-            NavigationService.Navigate(new DinoNuggetsCustomization(dw));
+            CretaceousCombo cc = new CretaceousCombo(new DinoNuggets());
+            SelectCombo(cc);
+            if (cc.Entree is DinoNuggets bw)
+            {
+                NavigationService.Navigate(new DinoNuggetsCustomization(bw));
+            }
         }
         private void SelectPBJ(object sender, RoutedEventArgs e)
         {
-            PrehistoricPBJ pb = new PrehistoricPBJ();
-            NavigationService.Navigate(new PrehistoricPBJCustomization(pb));
+            CretaceousCombo cc = new CretaceousCombo(new PrehistoricPBJ());
+            SelectCombo(cc);
+            if (cc.Entree is PrehistoricPBJ bw)
+            {
+                NavigationService.Navigate(new PrehistoricPBJCustomization(bw));
+            }
         }
         private void SelectVelociWrap(object sender, RoutedEventArgs e)
         {
-            VelociWrap vw = new VelociWrap();
-            NavigationService.Navigate(new VelociWrapCustomization(vw));
+            CretaceousCombo cc = new CretaceousCombo(new VelociWrap());
+            SelectCombo(cc);
+            if (cc.Entree is VelociWrap bw)
+            {
+                NavigationService.Navigate(new VelociWrapCustomization(bw));
+            }
         }
         private void SelectSteakosaurus(object sender, RoutedEventArgs e)
         {
-            SteakosaurusBurger sb = new SteakosaurusBurger();
-            NavigationService.Navigate(new SteakosaurusBurgerCustomization(sb));
+            CretaceousCombo cc = new CretaceousCombo(new SteakosaurusBurger());
+            SelectCombo(cc);
+            if (cc.Entree is SteakosaurusBurger bw)
+            {
+                NavigationService.Navigate(new SteakosaurusBurgerCustomization(bw));
+            }
         }
         private void SelectTRexKingBurger(object sender, RoutedEventArgs e)
         {
-            TRexKingBurger tr = new TRexKingBurger();
-            NavigationService.Navigate(new TRexKingBurgerCustomization(tr));
+            CretaceousCombo cc = new CretaceousCombo(new TRexKingBurger());
+            SelectCombo(cc);
+            if (cc.Entree is TRexKingBurger bw)
+            {
+                NavigationService.Navigate(new TRexKingBurgerCustomization(bw));
+            }
         }
         private void SelectPterodactylWings(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PterodactylWings());
+            CretaceousCombo cc = new CretaceousCombo(new PterodactylWings());
+            SelectCombo(cc);
+            if (cc.Entree is PterodactylWings bw)
+            {
+                NavigationService.Navigate(new CustomizeCombo());
+            }
         }
     }
 }

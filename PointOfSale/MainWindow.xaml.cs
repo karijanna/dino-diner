@@ -74,5 +74,9 @@ namespace PointOfSale
                 OrderInterface.NavigationService.Navigate(new MenuCategorySelection());
             }
         }
+        private void OnMainScreen(object sender, RoutedEventArgs args)
+        {
+            OrderInterface.NavigationService.Navigate(new MenuCategorySelection());
+        }
     }
 }
