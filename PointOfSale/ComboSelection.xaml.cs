@@ -22,6 +22,7 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboSelection : Page
     {
+        public CretaceousCombo Combo { get; set; }
         /// <summary>
         /// Opens the combo selection screen
         /// </summary>
@@ -29,15 +30,61 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
+        public ComboSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            Combo = combo;
+        }
+        private void SelectCombo(CretaceousCombo combo)
+        {
+            if (DataContext is Order order)
+            {
+                order.Add(combo);
+                this.Combo = combo;
+            }
+        }
         /// <summary>
         /// Opens customize combo screen for customize combo button click event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CustomizeCombo(object sender, RoutedEventArgs e)
+        private void SelectBrontowurst(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            CretaceousCombo cc = new CretaceousCombo(new Brontowurst());
+            SelectCombo(cc);
+            if (cc.Entree is Brontowurst bw)
+            {
+                NavigationService.Navigate(new BrontowurstCustomization(bw));
+            }
+        }
+        private void SelectDinoNuggets(object sender, RoutedEventArgs e)
+        {
+            DinoNuggets dw = new DinoNuggets();
+            NavigationService.Navigate(new DinoNuggetsCustomization(dw));
+        }
+        private void SelectPBJ(object sender, RoutedEventArgs e)
+        {
+            PrehistoricPBJ pb = new PrehistoricPBJ();
+            NavigationService.Navigate(new PrehistoricPBJCustomization(pb));
+        }
+        private void SelectVelociWrap(object sender, RoutedEventArgs e)
+        {
+            VelociWrap vw = new VelociWrap();
+            NavigationService.Navigate(new VelociWrapCustomization(vw));
+        }
+        private void SelectSteakosaurus(object sender, RoutedEventArgs e)
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            NavigationService.Navigate(new SteakosaurusBurgerCustomization(sb));
+        }
+        private void SelectTRexKingBurger(object sender, RoutedEventArgs e)
+        {
+            TRexKingBurger tr = new TRexKingBurger();
+            NavigationService.Navigate(new TRexKingBurgerCustomization(tr));
+        }
+        private void SelectPterodactylWings(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PterodactylWings());
         }
     }
 }

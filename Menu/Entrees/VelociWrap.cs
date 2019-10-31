@@ -37,7 +37,6 @@ namespace DinoDiner.Menu.Entrees
         public override void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         }
         /// <summary>
         /// Gets and sets the description
