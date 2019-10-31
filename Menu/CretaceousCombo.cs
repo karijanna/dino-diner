@@ -32,7 +32,18 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Getting the Entree options
         /// </summary>
-        public Entree Entree { get; set; }
+        private Entree entree;
+        public Entree Entree
+        {
+            get { return entree; }
+            set {
+                entree = value;
+                entree.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
+                {
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Special"));
+                };
+            }
+        }
         /// <summary>
         /// Getting the Drink options
         /// </summary>
