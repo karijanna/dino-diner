@@ -1,67 +1,16 @@
-﻿/*  PrehistoricPBJ.cs
-*   Author: Karijanna Miller
-*/
-
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-    /// <summary>
-    /// Prehistoric PBJ calories, price, and list of ingredients 
-    /// Contains methods that takes off certain ingredients if customers want to
-    /// </summary>
-    public class PrehistoricPBJ : Entree, INotifyPropertyChanged, IOrderItem
+    public class PrehistoricPBJ
     {
-        /// <summary>
-        /// Customers can take off peanut butter off of their order
-        /// </summary>
         private bool peanutButter = true;
-        /// <summary>
-        /// Customers can take off peanut butter off of their order
-        /// </summary>
         private bool jelly = true;
-        /// <summary>
-        /// The PropertyChanged event handler 
-        /// Notifies of changes to the Price, Description, and Special properties
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// Helper function for notifying of property changes
-        /// </summary>
-        /// <param name="propertyName">Name of the property that is changed</param>
-        public override void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        }
-        /// <summary>
-        /// Gets and sets the description
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return this.ToString();
-            }
-        }
-        /// <summary>
-        /// Gets any special preparation instructions
-        /// </summary>
-        public override string[] Special
-        {
-            get
-            {
-                List<string> special = new List<string>();
-                if (!peanutButter) special.Add("Hold Peanut Butter");
-                if(!jelly) special.Add("Hold Jelly");
-                return special.ToArray();
-            }
-        }
-        /// <summary>
-        /// Adds the list of ingredients to the menu
-        /// </summary>
-        public override List<string> Ingredients
+        public double Price { get; set; }
+        public uint Calories { get; set; }
+
+        public List<string> Ingredients
         {
             get
             {
@@ -71,39 +20,21 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
-        /// <summary>
-        /// Price and calories for the Prehistoric PBJ
-        /// </summary>
+
         public PrehistoricPBJ()
         {
-            Price = 6.52;
-            Calories = 483;
+            this.Price = 6.52;
+            this.Calories = 483;
         }
-        /// <summary>
-        /// Method to take off peanut butter
-        /// </summary>
+
         public void HoldPeanutButter()
         {
-            peanutButter = false;
-            NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
+            this.peanutButter = false;
         }
-        /// <summary>
-        /// Method to take off jelly
-        /// </summary>
+
         public void HoldJelly()
         {
-            jelly = false;
-            NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
-        }
-        /// <summary>
-        /// Adds the menu item name onto the menu
-        /// </summary>
-        /// <returns>The name of the entree</returns>
-        public override string ToString()
-        {
-            return "Prehistoric PB&J";
+            this.jelly = false;
         }
     }
 }

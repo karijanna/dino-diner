@@ -1,8 +1,4 @@
-﻿/* MainWindo.xaml.cs
- * Author: Karijanna Miller
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,10 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DinoDiner.Menu;
-using DinoDiner.Menu.Drinks;
-using DinoDiner.Menu.Entrees;
-using DinoDiner.Menu.Sides;
 
 namespace PointOfSale
 {
@@ -28,55 +20,9 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
-        /// <summary>
-        /// Constructor for main window
-        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            Order order = (Order)DataContext;
-            OrderControl.NavigationService = OrderInterface.NavigationService;
-        }
-
-        public void OnLoadCompleted(object sender, NavigationEventArgs args)
-        {
-            SetFrameDataContext();
-        }
-        
-        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
-        {
-            SetFrameDataContext();
-            //BindDataContentToPage();
-        }
-
-        private void SetFrameDataContext()
-        {
-            FrameworkElement content = OrderInterface.Content as FrameworkElement;
-            if (content == null) return;
-            content.DataContext = OrderInterface.DataContext;
-        }
-
-        private void BindDataContentToPage()
-        {
-            if(OrderInterface.Content is FrameworkElement element)
-            {
-                element.DataContext = OrderInterface.DataContext;
-            }
-        }
-        private void OnDone(object sender, RoutedEventArgs args)
-        {
-            if (OrderInterface.NavigationService.CanGoBack)
-            {
-                OrderInterface.NavigationService.GoBack();
-            }
-            else
-            {
-                OrderInterface.NavigationService.Navigate(new MenuCategorySelection());
-            }
-        }
-        private void OnMainScreen(object sender, RoutedEventArgs args)
-        {
-            OrderInterface.NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

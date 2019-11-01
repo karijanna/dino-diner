@@ -4,27 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
-        xmlns:menu="clr-namespace:DinoDiner.Menu;assembly=Menu"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.DataContext>
-        <menu:Order/>
-    </Window.DataContext>
     <DockPanel>
-        <local:OrderControl DockPanel.Dock="Right" Width="200" x:Name="OrderControl"/>
-        <Grid DockPanel.Dock="Bottom">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Click="OnDone">Return to Previous Screen</Button>
-            <Button Grid.Column="0" Click="OnMainScreen">Return to Main Screen</Button>
-        </Grid>
-        <Frame Name ="OrderInterface" 
-               NavigationUIVisibility="Hidden"
-               LoadCompleted="OnLoadCompleted"
-               DataContextChanged ="OnDataContextChanged" 
-               Source="MenuCategorySelection.xaml"/>
+        <TextBlock DockPanel.Dock="Right" Width="200" TextAlignment="Center" Background="LightSteelBlue">// TODO: Order</TextBlock>
+        <Frame Source="MenuCategorySelection.xaml"></Frame>
     </DockPanel>
 </Window>

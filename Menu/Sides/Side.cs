@@ -1,29 +1,12 @@
-﻿/*  Side.cs
-*   Author: Karijanna Miller
-*/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
 namespace DinoDiner.Menu.Sides
 {
-    /// <summary>
-    /// Sets and gets the size, price, calories, ingredients, specials, and description of the side item 
-    /// </summary>
-    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
+    public abstract class Side : IMenuItem, IOrderItem
     {
-        /// <summary>
-        /// The PropertyChanged event handler 
-        /// Notifies of changes to the Price, Description, and Special properties
-        /// </summary>
-        public abstract event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// Helper function for notifying of property changes
-        /// </summary>
-        /// <param name="propertyName">Name of the property that is changed</param>
-        public abstract void NotifyOfPropertyChange(string propertyName);
         /// <summary>
         /// Gets and sets the price
         /// </summary>
@@ -39,17 +22,17 @@ namespace DinoDiner.Menu.Sides
         /// </summary>
         public abstract List<string> Ingredients { get; }
 
+        public abstract string Description { get; }
+
+        public abstract string[] Special { get; }
         /// <summary>
         /// Gets or sets the size
         /// </summary>
         public abstract Size Size { get; set; }
-        /// <summary>
-        /// Gets the description of the side menu item
-        /// </summary>
-        public abstract string Description { get; }
-        /// <summary>
-        /// Gets the special instructions of the side menu item
-        /// </summary>
-        public abstract string[] Special { get; }
+
+        public abstract event PropertyChangedEventHandler PropertyChanged;
+
+        public abstract void NotifyOfPropertyChange(string propertyName);
+
     }
 }
