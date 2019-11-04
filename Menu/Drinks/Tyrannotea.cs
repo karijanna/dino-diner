@@ -88,16 +88,19 @@ namespace DinoDiner.Menu.Drinks
                         Price = 0.99;
                         Calories = 8;
                         NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Medium:
                         Price = 1.49;
                         Calories = 16;
                         NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Large:
                         Price = 1.99;
                         Calories = 32;
                         NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                 }
             }
@@ -156,6 +159,7 @@ namespace DinoDiner.Menu.Drinks
                     Calories /= 2;
                 }
                 NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Description");
             }
         }
         /// <summary>

@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
 using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu.Sides;
+using DinoDiner.Menu.Drinks;
 
 namespace PointOfSale
 {
@@ -22,7 +24,7 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboSelection : Page
     {
-        public CretaceousCombo Combo { get; set; }
+        public CretaceousCombo Combo = new CretaceousCombo(new Brontowurst());
         /// <summary>
         /// Opens the combo selection screen
         /// </summary>

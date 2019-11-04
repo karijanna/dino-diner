@@ -66,6 +66,10 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Special");
             }
         }
         /// <summary>

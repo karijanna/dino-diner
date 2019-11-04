@@ -14,10 +14,23 @@ namespace DinoDiner.Menu.Drinks
     /// </summary>
     public class Sodasaurus : Drink, INotifyPropertyChanged, IOrderItem
     {
+        private SodasaurusFlavor flavor;
         /// <summary>
         /// Default flavor is cola for the Sodasaurus flavor
         /// </summary>
-        public SodasaurusFlavor Flavor { get; set; } = SodasaurusFlavor.Cola;
+        public SodasaurusFlavor Flavor
+        {
+            get
+            {
+                return flavor;
+            }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChange("Flavor");
+                NotifyOfPropertyChange("Description");
+            }
+        }
         /// <summary>
         /// Private size variable for switch case
         /// </summary>
@@ -90,16 +103,19 @@ namespace DinoDiner.Menu.Drinks
                         Price = 1.50;
                         Calories = 112;
                         NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Medium:
                         Price = 2.00;
                         Calories = 156;
                         NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Large:
                         Price = 2.50;
                         Calories = 208;
                         NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                 }
             }
