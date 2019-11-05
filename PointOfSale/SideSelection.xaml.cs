@@ -48,6 +48,10 @@ namespace PointOfSale
             InitializeComponent();
             Side = side;
         }
+        /*private void ComboSelection(CretaceousCombo combo)
+        {
+               
+        }*/
         /// <summary>
         /// Adds the side to the order when selected
         /// </summary>

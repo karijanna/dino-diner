@@ -24,7 +24,7 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboSelection : Page
     {
-        public CretaceousCombo Combo = new CretaceousCombo(new Brontowurst());
+        public CretaceousCombo Combo;
         /// <summary>
         /// Opens the combo selection screen
         /// </summary>
@@ -110,7 +110,7 @@ namespace PointOfSale
             SelectCombo(cc);
             if (cc.Entree is PterodactylWings bw)
             {
-                NavigationService.Navigate(new CustomizeCombo());
+                NavigationService.Navigate(new CustomizeCombo(cc));
             }
         }
     }

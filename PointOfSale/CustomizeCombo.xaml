@@ -21,14 +21,14 @@
             <RowDefinition Height="94*"/>
         </Grid.RowDefinitions>
         <Button Click="SelectSide" Content="Fryceritops" Margin="72,84,140.333,44.667" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <Button Grid.Column="1" Content="Medium" Margin="0.333,37.333,0.333,47" Grid.RowSpan="2" Grid.Row="2"/>
+        <Button Name="BtnPickMedium" Click="PickMedium" Grid.Column="1" Content="Medium" Margin="0.333,37.333,0.333,47" Grid.RowSpan="2" Grid.Row="2"/>
         <TextBlock Grid.Row="0" Margin="0,0,10,0" Text="Add To Order" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="790" Grid.ColumnSpan="3" TextAlignment="Center"/>
         <TextBlock Grid.Row="2" Margin="0.333,9.333,0.333,0" Text="Size" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="266" TextAlignment="Center" Grid.Column="1"/>
         <TextBlock Grid.Row="0" Margin="0,23,0,0" Text="Customize Combo" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="800" TextAlignment="Center" Grid.ColumnSpan="3"/>
         <Button Click="SelectDrink" Grid.Column="1" Content="Sodasaurus" Margin="145.333,84,80,44.667" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <Button Grid.Column="2" Content="Large" Margin="0.667,37.333,0,47" Grid.RowSpan="2" Grid.Row="2"/>
+        <Button Name="BtnPickLarge" Click="PickLarge" Grid.Column="2" Content="Large" Margin="0.667,37.333,0,47" Grid.RowSpan="2" Grid.Row="2"/>
         <TextBlock Grid.Row="0" Margin="166.333,56,101,0" Text="Drink" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="266" TextAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Button Content="Small" Margin="0,37.333,0.667,47" Grid.RowSpan="2" Grid.Row="2"/>
+        <Button Name="BtnPickSmall" Click="PickSmall" Content="Small" Margin="0,37.333,0.667,47" Grid.RowSpan="2" Grid.Row="2"/>
         <TextBlock Grid.Row="0" Margin="100,56,167.333,0" Text="Side" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23" Width="266" TextAlignment="Center" Grid.ColumnSpan="2"/>
     </Grid>
 </Page>
