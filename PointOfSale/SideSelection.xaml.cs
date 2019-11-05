@@ -32,6 +32,8 @@ namespace PointOfSale
         /// Gets and sets the side item
         /// </summary>
         public Side Side { get; set; }
+        public CretaceousCombo Combo { get; set; }
+        private bool IsCombo;
         /// <summary>
         /// Constructor for side selection class
         /// </summary>
@@ -48,10 +50,13 @@ namespace PointOfSale
             InitializeComponent();
             Side = side;
         }
-        /*private void ComboSelection(CretaceousCombo combo)
+        public SideSelection(CretaceousCombo combo)
         {
-               
-        }*/
+            InitializeComponent();
+            Side = combo.Side;
+            Combo = combo;
+            this.IsCombo = true;
+        }
         /// <summary>
         /// Adds the side to the order when selected
         /// </summary>
@@ -60,8 +65,16 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(side);
-                this.Side = side;
+                if (!IsCombo)
+                {
+                    order.Add(side);
+                    this.Side = side;
+                }
+                else
+                {
+                    Combo.Side = side;
+                    this.Side = side;
+                }
             }
         }
         /// <summary>
@@ -70,9 +83,20 @@ namespace PointOfSale
         /// <param name="size"></param>
         private void SelectSize(DinoDiner.Menu.Size size)
         {
-            if(Side != null)
+            if (IsCombo)
             {
-                this.Side.Size = size;
+                if (Side != null)
+                {
+                    Combo.Side.Size = size;
+                    Combo.NotifyOfPropertyChange("Special");
+                }
+            }
+            else
+            {
+                if (Side != null)
+                {
+                    this.Side.Size = size;
+                }
             }
         }
         /// <summary>
