@@ -1,0 +1,84 @@
+﻿@page
+@model Website.Pages.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h1>Menu</h1>
+
+<h2>Combos</h2>
+@foreach (DinoDiner.Menu.IMenuItem item in Model.Menu.AvailableCombo)
+{
+    <div class="menu-item">
+        <h3>
+            @item.ToString()
+        </h3>
+        <b>Calories: </b>
+        @item.Calories<br />
+        <b>Price: </b>
+        @String.Format("{0:N2}", @item.Price)<br />
+        <b>Ingredients: </b><br />
+        @foreach (string ingredient in item.Ingredients)
+        {
+            @ingredient<br />
+        }
+    </div>
+}
+
+<h2>Entrees</h2>
+@foreach (DinoDiner.Menu.IMenuItem item in Model.Menu.AvailableEntrees)
+{
+    <div class="menu-item">
+        <h3>
+            @item.ToString()
+        </h3>
+        <b>Caloris: </b>
+        @item.Calories<br />
+        <b>Price: </b>
+        @String.Format("{0:N2", item.Price)<br />
+        <b>Ingredients: </b><br />
+        @foreach (string ingredient in item.Ingredients)
+        {
+            @ingredient<br />
+        }
+    </div>
+}
+
+<h2>Drinks</h2>
+@foreach (DinoDiner.Menu.IMenuItem item in Model.Menu.AvailableDrinks)
+{
+    <div class="menu-item">
+        <h3>
+            @item.ToString()
+        </h3>
+        <b>Caloris: </b>
+        @item.Calories<br />
+        <b>Price: </b>
+        @String.Format("{0:N2", item.Price)<br />
+        <b>Ingredients: </b><br />
+        @foreach (string ingredient in item.Ingredients)
+        {
+            @ingredient<br />
+        }
+    </div>
+}
+
+<h2>Sides</h2>
+@foreach (DinoDiner.Menu.IMenuItem item in Model.Menu.AvailableSides)
+{
+    <div class="menu-item">
+        <h3>
+            @item.ToString()
+        </h3>
+        <b>Caloris: </b>
+        @item.Calories<br />
+        <b>Price: </b>
+        @String.Format("{0:N2", item.Price)<br />
+        <b>Ingredients: </b><br />
+        @foreach (string ingredient in item.Ingredients)
+        {
+            @ingredient<br />
+        }
+    </div>
+}
+
