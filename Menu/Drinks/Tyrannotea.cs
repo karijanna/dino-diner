@@ -131,6 +131,7 @@ namespace DinoDiner.Menu.Drinks
             Price = 0.99;
             Calories = 8;
             Ice = true;
+            Category = "Drink";
         }
         /// <summary>
         /// Method for adding lemon to the tea

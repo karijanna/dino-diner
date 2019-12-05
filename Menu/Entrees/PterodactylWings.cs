@@ -66,6 +66,7 @@ namespace DinoDiner.Menu.Entrees
         {
             Price = 7.21;
             Calories = 318;
+            Category = "Entree";
         }
         /// <summary>
         /// Turns the order into a string

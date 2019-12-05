@@ -56,5 +56,9 @@ namespace DinoDiner.Menu.Drinks
         /// Gets the description of a menu item
         /// </summary>
         public abstract string Description { get; }
+        /// <summary>
+        /// Makes drinks available on category
+        /// </summary>
+        public string Category { get; set; }
     }
 }

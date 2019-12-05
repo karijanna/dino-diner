@@ -57,6 +57,7 @@ namespace DinoDiner.Menu.Sides
             Size = Size.Small;
             Price = 0.99;
             Calories = 222;
+            Category = "Side";
         }
         public override List<string> Ingredients
         {

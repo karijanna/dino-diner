@@ -57,6 +57,7 @@ namespace DinoDiner.Menu.Sides
             Size = Size.Small;
             Price = 0.99;
             Calories = 352;
+            Category = "Side";
         }
         /// <summary>
         /// Adds the ingredients to the menu

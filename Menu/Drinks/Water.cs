@@ -118,6 +118,7 @@ namespace DinoDiner.Menu.Drinks
             Price = 0.10;
             Calories = 0;
             Ice = true;
+            Category = "Drink";
         }
         /// <summary>
         /// Method that adds lemon to the water

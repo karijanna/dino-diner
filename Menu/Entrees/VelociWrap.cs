@@ -85,6 +85,7 @@ namespace DinoDiner.Menu.Entrees
         {
             Price = 6.86;
             Calories = 356;
+            Category = "Entree";
         }
 
         /// <summary>

@@ -138,7 +138,7 @@ namespace DinoDiner.Menu.Drinks
             Size = Size.Small;
             Price = 0.59;
             Calories = 2;
-            //Ice = false;
+            Category = "Drink";
         }
         /// <summary>
         /// Method for making room for cream

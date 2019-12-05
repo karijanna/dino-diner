@@ -46,5 +46,9 @@ namespace DinoDiner.Menu.Entrees
         /// Gets the special instructions for the menu item
         /// </summary>
         public abstract string[] Special { get; }
+        /// <summary>
+        /// Makes entrees available on category
+        /// </summary>
+        public string Category { get; set; }
     }
 }

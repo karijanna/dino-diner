@@ -57,6 +57,10 @@ namespace DinoDiner.Menu
         /// </summary>
         private Size size = Size.Small;
         /// <summary>
+        /// Makes the combo available on the category 
+        /// </summary>
+        public string Category { get; set; }
+        /// <summary>
         /// Getting the size options
         /// </summary>
         public Size Size
@@ -125,6 +129,7 @@ namespace DinoDiner.Menu
             Entree = entree;
             Side = new Fryceritops();
             Drink = new Sodasaurus();
+            Category = "Combo";
         }
         /// <summary>
         /// The total calories amount for the combo

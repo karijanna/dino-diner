@@ -90,6 +90,7 @@ namespace DinoDiner.Menu.Entrees
         {
             Price = 5.15;
             Calories = 621;
+            Category = "Entree";
         }
         /// <summary>
         /// Method to take off the bun

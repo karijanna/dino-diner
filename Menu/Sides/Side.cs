@@ -33,6 +33,9 @@ namespace DinoDiner.Menu.Sides
         public abstract event PropertyChangedEventHandler PropertyChanged;
 
         public abstract void NotifyOfPropertyChange(string propertyName);
-
+        /// <summary>
+        /// Category option for sides
+        /// </summary>
+        public string Category { get; set; }
     }
 }

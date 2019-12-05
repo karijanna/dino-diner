@@ -143,6 +143,7 @@ namespace DinoDiner.Menu.Drinks
             Price = 1.50;
             Calories = 112;
             Ice = true;
+            Category = "Drink";
         }
         /// <summary>
         /// Turns the order into a string

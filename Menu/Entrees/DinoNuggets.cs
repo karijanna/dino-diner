@@ -75,6 +75,7 @@ namespace DinoDiner.Menu.Entrees
         {
             Price = 4.25;
             Calories = 354;
+            Category = "Entree";
         }
         /// <summary>
         /// Method adds an extra nugget onto the order
