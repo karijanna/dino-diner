@@ -24,28 +24,6 @@ namespace DinoDiner.Menu
             get
             {
                 List<IMenuItem> menuItem = new List<IMenuItem>();
-                menuItem.Add(new Brontowurst());
-                menuItem.Add(new JurassicJava());
-                menuItem.Add(new Sodasaurus());
-                menuItem.Add(new Tyrannotea());
-                menuItem.Add(new Water());
-                menuItem.Add(new DinoNuggets());
-                menuItem.Add(new PrehistoricPBJ());
-                menuItem.Add(new PterodactylWings());
-                menuItem.Add(new SteakosaurusBurger());
-                menuItem.Add(new TRexKingBurger());
-                menuItem.Add(new VelociWrap());
-                menuItem.Add(new Fryceritops());
-                menuItem.Add(new MeteorMacAndCheese());
-                menuItem.Add(new MezzorellaSticks());
-                menuItem.Add(new Triceritots());
-                menuItem.Add(new CretaceousCombo(new Brontowurst()));
-                menuItem.Add(new CretaceousCombo(new DinoNuggets()));
-                menuItem.Add(new CretaceousCombo(new PrehistoricPBJ()));
-                menuItem.Add(new CretaceousCombo(new PterodactylWings()));
-                menuItem.Add(new CretaceousCombo(new SteakosaurusBurger()));
-                menuItem.Add(new CretaceousCombo(new TRexKingBurger()));
-                menuItem.Add(new CretaceousCombo(new VelociWrap()));
                 menuItem.AddRange(AvailableCombo);
                 menuItem.AddRange(AvailableDrinks);
                 menuItem.AddRange(AvailableEntrees);
@@ -130,7 +108,7 @@ namespace DinoDiner.Menu
                 List<string> ingredients = new List<string>();
                 foreach(IMenuItem item in AvailableMenuItems)
                 {
-                    foreach(string s in ingredients)
+                    foreach(string s in item.Ingredients)
                     {
                         if(!ingredients.Contains(s))
                         {

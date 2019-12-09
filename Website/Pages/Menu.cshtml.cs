@@ -13,7 +13,7 @@ namespace Website.Pages
         /// <summary>
         /// Menu items displayed on the webpage
         /// </summary>
-        public List<IMenuItem> MenuItems;
+        public IEnumerable<IMenuItem> MenuItems;
 
         /// <summary>
         /// Search bar string
@@ -48,15 +48,15 @@ namespace Website.Pages
         /// <summary>
         /// List of all ingredients on menu item
         /// </summary>
-        public List<string> Ingredients;
+        public IEnumerable<string> Ingredients;
 
         /// <summary>
         /// Method to operate when web page is running
         /// </summary>
         public void OnGet()
         {
-            MenuItems = Menu.AvailableMenuItems;
-            Ingredients = Menu.PossibleIngredients;
+            MenuItems = Menu.AvailableMenuItems.OrderBy(menuItem => menuItem.Category);
+            Ingredients = Menu.PossibleIngredients.OrderBy(ingredient => ingredient.ToString());
         }
 
         /// <summary>
@@ -69,27 +69,30 @@ namespace Website.Pages
 
             if (Search != null)
             {
-                MenuItems = Menu.Search(MenuItems, Search);
+                MenuItems = MenuItems.Where(menuItem => menuItem.ToString().Contains(Search, StringComparison.OrdinalIgnoreCase));
             }
 
             if (Category.Count != 0)
             {
-                MenuItems = Menu.FilterByCategory(MenuItems, Category);
+                MenuItems = MenuItems.Where(menuItem => Category.Contains(menuItem.Category));
             }
 
             if (MinPrice != null)
             {
-                MenuItems = Menu.FilterByMinPrice(MenuItems, (float)MinPrice);
+                MenuItems = MenuItems.Where(menuItem => menuItem.Price >= MinPrice);
             }
 
             if (MaxPrice != null)
             {
-                MenuItems = Menu.FilterByMaxPrice(MenuItems, (float)MaxPrice);
+                MenuItems = MenuItems.Where(menuItem => menuItem.Price <= MaxPrice);
             }
 
             if(ExcludeIngredients.Count != 0)
             {
-                MenuItems = Menu.FilterByIngredients(MenuItems, ExcludeIngredients);
+                foreach (string s in ExcludeIngredients)
+                {
+                    MenuItems = MenuItems.Where(menuItem => !menuItem.Ingredients.Contains(s));
+                }
             }
         }
     }

@@ -17,10 +17,36 @@
                     <h3>
                         @item.ToString()
                     </h3>
-                    <b>Calories: </b>
-                    @item.Calories<br />
-                    <b>Price: </b>
-                    @String.Format("{0:N2}", @item.Price)<br />
+                   <table style="width: 50px">
+                       <tr>
+                           <th>Size</th>
+                           <th>Price</th>
+                           <th>Calories</th>
+                       </tr>
+                       <tr>
+                           <th>Small</th>
+                           <th>@String.Format("{0:N2}", @item.Price)</th>
+                           <th>@item.Calories</th>
+                       </tr>
+                       <tr>
+                           @if (item is DinoDiner.Menu.CretaceousCombo mediumItem)
+                           {
+                               mediumItem.Size = DinoDiner.Menu.Size.Medium;
+                           }
+                           <th>Medium</th>
+                           <th>@String.Format("{0:N2}", @item.Price)</th>
+                           <th>@item.Calories</th>
+                       </tr>
+                       <tr>
+                           @if (item is DinoDiner.Menu.CretaceousCombo largeItem)
+                           {
+                               largeItem.Size = DinoDiner.Menu.Size.Large;
+                           }
+                            <th>Large</th>
+                           <th>@String.Format("{0:N2}", @item.Price)</th>
+                           <th>@item.Calories</th>
+                       </tr>
+                   </table>
                     <b>Ingredients: </b><br />
                     @foreach (string ingredient in item.Ingredients)
                     {
@@ -60,10 +86,36 @@
                     <h3>
                         @item.ToString()
                     </h3>
-                    <b>Caloris: </b>
-                    @item.Calories<br />
-                    <b>Price: </b>
-                    @String.Format("{0:N2}", @item.Price)<br />
+                    <table style="width: 50px">
+                        <tr>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Calories</th>
+                        </tr>
+                        <tr>
+                            <th>Small</th>
+                            <th>@String.Format("{0:N2}", @item.Price)</th>
+                            <th>@item.Calories</th>
+                        </tr>
+                        <tr>
+                            @if (item is DinoDiner.Menu.Drinks.Drink mediumItem)
+                            {
+                                mediumItem.Size = DinoDiner.Menu.Size.Medium;
+                            }
+                            <th>Medium</th>
+                            <th>@String.Format("{0:N2}", @item.Price)</th>
+                            <th>@item.Calories</th>
+                        </tr>
+                        <tr>
+                            @if (item is DinoDiner.Menu.Drinks.Drink largeItem)
+                            {
+                                largeItem.Size = DinoDiner.Menu.Size.Large;
+                            }
+                            <th>Large</th>
+                            <th>@String.Format("{0:N2}", @item.Price)</th>
+                            <th>@item.Calories</th>
+                        </tr>
+                    </table>
                     <b>Ingredients: </b><br />
                     @foreach (string ingredient in item.Ingredients)
                     {
@@ -82,15 +134,42 @@
                     <h3>
                         @item.ToString()
                     </h3>
-                    <b>Caloris: </b>
-                    @item.Calories<br />
-                    <b>Price: </b>
-                    @String.Format("{0:N2}", @item.Price)<br />
+                    <table style="width: 50px">
+                        <tr>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Calories</th>
+                        </tr>
+                        <tr>
+                            <th>Small</th>
+                            <th>@String.Format("{0:N2}", @item.Price)</th>
+                            <th>@item.Calories</th>
+                        </tr>
+                        <tr>
+                            @if (item is DinoDiner.Menu.Sides.Side mediumItem)
+                            {
+                                mediumItem.Size = DinoDiner.Menu.Size.Medium;
+
+                            }
+                            <th>Medium</th>
+                            <th>@String.Format("{0:N2}", @item.Price)</th>
+                            <th>@item.Calories</th>
+                        </tr>
+                        <tr>
+                            @if (item is DinoDiner.Menu.Sides.Side largeItem)
+                            {
+                                largeItem.Size = DinoDiner.Menu.Size.Large;
+                            }
+                            <th>Large</th>
+                            <th>@String.Format("{0:N2}", @item.Price)</th>
+                            <th>@item.Calories</th>
+                        </tr>
+                    </table>
                     <b>Ingredients: </b><br />
                     @foreach (string ingredient in item.Ingredients)
-                     {
+                    {
                         @ingredient<br />
-                     }
+                    }
                 </div>
             }
          }
@@ -130,10 +209,10 @@
             </label>
 
             <h3>Excluding Ingredients</h3>
-            @foreach (string ingredient in Model.Ingredients)
+            @foreach (string ingredient in @Model.Ingredients)
             {
                 <label>
-                    <input type="checkbox" name="excludeIngredients" value="@ingredient" checked="@Model.ExcludeIngredients.Contains(ingredient)"/>
+                    <input type="checkbox" name="excludeIngredients" value="@ingredient" checked="@Model.ExcludeIngredients.Contains(@ingredient)"/>
                     @ingredient
                 </label>
             }
